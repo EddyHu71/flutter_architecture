@@ -4,17 +4,17 @@ import 'package:bloc_flutters/domain/login/login_failure.dart';
 import 'package:bloc_flutters/domain/login/login_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
 part 'login_bloc.freezed.dart';
-
+@injectable
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final ILoginRepository iLoginRepository;
   LoginBloc(this.iLoginRepository) : super(LoginState.initial()) {
     on<LoginEvent>((event, emit) async* {
       // TODO: implement event handler
-
       yield* event.map(
         signIn: (e) async* {
 

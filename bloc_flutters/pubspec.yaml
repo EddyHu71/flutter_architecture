@@ -45,6 +45,7 @@ dependencies:
   json_annotation: ^4.3.0
   shimmer:
   uuid:
+  flutter_hooks:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -62,6 +63,8 @@ dev_dependencies:
   lint: ^1.7.2
   logger: ^1.1.0
   mocktail:
+  flutter_secure_storage:
+  fresh_dio:
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -79,7 +82,9 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
+  assets:
+    - assets/flutter_logo.png
+    - .env
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
