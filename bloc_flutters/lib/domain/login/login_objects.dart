@@ -31,6 +31,6 @@ class Password extends ValueObject<String> {
     );
   }
 
-  Password._(this.value);
+  const Password._(this.value);
 
 }

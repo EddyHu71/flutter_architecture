@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:bloc_flutters/domain/core/failures.dart';
-import 'package:bloc_flutters/domain/core/i_network_service.dart';
 import 'package:bloc_flutters/domain/login/i_login_repository.dart';
 import 'package:bloc_flutters/domain/login/login_objects.dart';
 import 'package:bloc_flutters/model/response/login_model.dart';
@@ -16,6 +15,7 @@ part 'login_bloc.freezed.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final ILoginRepository iLoginRepository;
   LoginBloc(this.iLoginRepository) : super(LoginState.initial()) {
+    // ignore: void_checks
     on<LoginEvent>((event, emit) async* {
       // TODO: implement event handler
       yield* event.map(
@@ -48,7 +48,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         authFailureOrSuccessOption: none(),
       );
 
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       failOrSuccess = await iLoginRepository.login(
         state.email.getOrCrash(), state.password.getOrCrash());
       print("Login success");

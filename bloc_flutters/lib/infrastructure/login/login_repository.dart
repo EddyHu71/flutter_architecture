@@ -7,15 +7,13 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ILoginRepository)
-
 class LoginRepository implements ILoginRepository {
-  final INetworkService iNetworkService;
-  LoginRepository(this.iNetworkService);
+  final INetworkService networkService;
+  LoginRepository(this.networkService);
 
   @override
   Future<Either<ValueFailure, LoginModel>> login(
-    String email, String password
-    ) async {
+    String email, String password) async {
     // TODO: implement login
     // throw UnimplementedError();
     try {
@@ -23,7 +21,7 @@ class LoginRepository implements ILoginRepository {
         "email" : email,
         "password" : password,
       };
-      var res = await iNetworkService.postHttp(path: UrlPath.login, content: request);
+      var res = await networkService.postHttp(path: UrlPath.login, content: request);
       print("Repo Login executed");
       print(res);
       if (res.token != null) {

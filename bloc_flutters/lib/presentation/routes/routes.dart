@@ -7,9 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class Routers {
-  static final String splashScreen = "/splashscreen";
-  static final String login = "/login";
-  static final String mainpage = "/mainpage";
+  static const String splashScreen = "/splashscreen";
+  static const String login = "/login";
+  static const String mainpage = "/mainpage";
 
   final List<GetPage> routes = [
 
@@ -18,7 +18,7 @@ class Routers {
       name: Routers.login, 
       page: () => BlocProvider<LoginBloc>(
         create: (context) => getIt<LoginBloc>(),
-        child : LoginPage())
+        child : LoginPage()),
     ),
 
     GetPage(name: Routers.splashScreen, page: () => SplashScreen()),

@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -40,7 +41,7 @@ class LoginPage extends StatelessWidget {
               autovalidate: state.showErrorMessage,
               child : Column(
               children: [
-              Expanded(
+              const Expanded(
                 flex : 4,
                 child: SizedBox()),
               Padding(
@@ -83,7 +84,7 @@ class LoginPage extends StatelessWidget {
                   orElse: () => null), 
                   (r) => null),
               ),
-              Expanded(
+              const Expanded(
                 flex : 1,
                 child: SizedBox()),
               Padding(
@@ -93,11 +94,11 @@ class LoginPage extends StatelessWidget {
                     text: "Login",
                     onPressed: () {
                       print("Login");
-                      context.read<LoginBloc>().add(LoginEvent.signIn());
+                      context.read<LoginBloc>().add(const LoginEvent.signIn());
                       // Get.off(HomePage());
                     }),
               ),
-              Expanded(
+              const Expanded(
                 flex : 5,
                 child : SizedBox())
             ],),)
