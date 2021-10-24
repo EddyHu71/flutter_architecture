@@ -685,9 +685,8 @@ class _$_LoginState implements _LoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LoginState &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.password, password) &&
             (identical(other.showErrorMessage, showErrorMessage) ||
                 other.showErrorMessage == showErrorMessage) &&
             (identical(other.isLoading, isLoading) ||
@@ -701,8 +700,14 @@ class _$_LoginState implements _LoginState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, password,
-      showErrorMessage, isLoading, isSubmitting, authFailureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(password),
+      showErrorMessage,
+      isLoading,
+      isSubmitting,
+      authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override

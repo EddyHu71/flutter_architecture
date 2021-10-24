@@ -13,7 +13,8 @@ class LoginPage extends StatelessWidget {
     // TODO: implement build
     return BlocConsumer<LoginBloc, LoginState>(
       listener: (BuildContext context, LoginState state) {
-        state.authFailureOrSuccessOption.fold(() => null, 
+        state.authFailureOrSuccessOption.fold(
+        () => null, 
         (a) => a.fold(
           (l) => l.maybeMap(
             orElse: () => null,
@@ -32,9 +33,13 @@ class LoginPage extends StatelessWidget {
       },
       builder: (BuildContext context, LoginState state) {
         return Scaffold(
-          body : Padding(
+          body : SafeArea(
+            child : Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Column(children: [
+            child: Form(
+              autovalidate: state.showErrorMessage,
+              child : Column(
+              children: [
               Expanded(
                 flex : 4,
                 child: SizedBox()),
@@ -51,11 +56,12 @@ class LoginPage extends StatelessWidget {
                   prefixIcon: Icon(Icons.person)
                 ),
                 onChanged: (value) => context.read<LoginBloc>().add(LoginEvent.onEmailChanged(value)),
-                validator: (context) => state.email.value.fold(
+                validator: (_) => state.email.value.fold(
                   (l) => l.maybeMap(
                     empty: (_) => "Email anda kosong",
                     invalidEmail: (_) =>  "Email anda tidak valid",
-                  orElse: () => null), (r) => null)
+                  orElse: () => null), 
+                  (r) => null)
               ),
 
               TextFormField(
@@ -68,12 +74,14 @@ class LoginPage extends StatelessWidget {
                   prefixIcon: Icon(Icons.lock)
                 ),
                 obscureText: true,
-                onChanged: (value) => context.read<LoginBloc>().add(LoginEvent.onPasswordChanged(value)),
-                validator: (context) => state.email.value.fold(
+                onChanged: (value) => 
+                context.read<LoginBloc>().add(LoginEvent.onPasswordChanged(value)),
+                validator: (_) => state.email.value.fold(
                   (l) => l.maybeMap(
                     empty: (_) => "Password anda kosong",
                     invalidPassword: (_) =>  "Password anda tidak valid",
-                  orElse: () => null), (r) => null)
+                  orElse: () => null), 
+                  (r) => null),
               ),
               Expanded(
                 flex : 1,
@@ -92,7 +100,8 @@ class LoginPage extends StatelessWidget {
               Expanded(
                 flex : 5,
                 child : SizedBox())
-            ],),
+            ],),)
+          )
           )
         );
     });

@@ -20,7 +20,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       // TODO: implement event handler
       yield* event.map(
           signIn: (e) async* {
-            yield _signIn();
+            yield* _signIn();
           },
           onEmailChanged: (e) async* {
             yield state.copyWith(
@@ -44,20 +44,21 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (isEmailValid && isPasswordValid) {
       yield state.copyWith(
         isSubmitting: false,
-        isLoading: false,
+        isLoading: true,
         authFailureOrSuccessOption: none(),
       );
 
       await Future.delayed(Duration(seconds: 1));
-      failOrSuccess = await iLoginRepository.login(state.email.getOrCrash(), state.password.getOrCrash());
+      failOrSuccess = await iLoginRepository.login(
+        state.email.getOrCrash(), state.password.getOrCrash());
       print("Login success");
     }
 
     yield state.copyWith(
       isSubmitting: false,
       isLoading: false,
-      showErrorMessage: false,
-      authFailureOrSuccessOption: none()
+      showErrorMessage: true,
+      authFailureOrSuccessOption: optionOf(failOrSuccess)
     );
   }
 }

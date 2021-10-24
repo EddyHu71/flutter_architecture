@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:bloc_flutters/presentation/core/colours.dart';
 import 'package:bloc_flutters/presentation/core/utils.dart';
 import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -23,9 +21,6 @@ class SplashScreen extends HookWidget {
         });
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-        color: Colours.splashButtonColor
-        ),
         child: Center(
             child: Image.asset(Utils.LOGO, fit : BoxFit.fitWidth))
         ));

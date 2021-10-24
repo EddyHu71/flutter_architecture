@@ -4,7 +4,6 @@ import 'package:bloc_flutters/domain/login/i_login_repository.dart';
 import 'package:bloc_flutters/infrastructure/core/link_connect.dart';
 import 'package:bloc_flutters/model/response/login_model.dart';
 import 'package:dartz/dartz.dart';
-import 'package:bloc_flutters/domain/login/login_failure.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ILoginRepository)
@@ -12,8 +11,11 @@ import 'package:injectable/injectable.dart';
 class LoginRepository implements ILoginRepository {
   final INetworkService iNetworkService;
   LoginRepository(this.iNetworkService);
+
   @override
-  Future<Either<ValueFailure, LoginModel>> login(String email, String password) async {
+  Future<Either<ValueFailure, LoginModel>> login(
+    String email, String password
+    ) async {
     // TODO: implement login
     // throw UnimplementedError();
     try {
@@ -21,8 +23,9 @@ class LoginRepository implements ILoginRepository {
         "email" : email,
         "password" : password,
       };
-
       var res = await iNetworkService.postHttp(path: UrlPath.login, content: request);
+      print("Repo Login executed");
+      print(res);
       if (res.token != null) {
         print("Login success");
         return right(LoginModel.fromJson(res));
