@@ -18,21 +18,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     // ignore: void_checks
     on<LoginEvent>((event, emit) async* {
       // TODO: implement event handler
-      yield* event.map(
-          signIn: (e) async* {
-            yield* _signIn();
-          },
-          onEmailChanged: (e) async* {
-            yield state.copyWith(
-              email: Email(e.email),
-              authFailureOrSuccessOption: none(),
-            );
-          },
-          onPasswordChanged: (e) async* {
-            yield state.copyWith(
-                password: Password(e.password),
-                authFailureOrSuccessOption: none());
-          });
+      yield* event.map(signIn: (e) async* {
+        yield* _signIn();
+      }, onEmailChanged: (e) async* {
+        yield state.copyWith(
+          email: Email(e.email),
+          authFailureOrSuccessOption: none(),
+        );
+      }, onPasswordChanged: (e) async* {
+        yield state.copyWith(
+            password: Password(e.password), authFailureOrSuccessOption: none());
+      });
     });
   }
 
@@ -50,15 +46,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       await Future.delayed(const Duration(seconds: 1));
       failOrSuccess = await iLoginRepository.login(
-        state.email.getOrCrash(), state.password.getOrCrash());
+          state.email.getOrCrash(), state.password.getOrCrash());
       print("Login success");
     }
 
     yield state.copyWith(
-      isSubmitting: false,
-      isLoading: false,
-      showErrorMessage: true,
-      authFailureOrSuccessOption: optionOf(failOrSuccess)
-    );
+        isSubmitting: false,
+        isLoading: false,
+        showErrorMessage: true,
+        authFailureOrSuccessOption: optionOf(failOrSuccess));
   }
 }

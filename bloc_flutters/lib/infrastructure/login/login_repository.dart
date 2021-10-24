@@ -13,15 +13,16 @@ class LoginRepository implements ILoginRepository {
 
   @override
   Future<Either<ValueFailure, LoginModel>> login(
-    String email, String password) async {
+      String email, String password) async {
     // TODO: implement login
     // throw UnimplementedError();
     try {
       final Map<String, dynamic> request = {
-        "email" : email,
-        "password" : password,
+        "email": email,
+        "password": password,
       };
-      var res = await networkService.postHttp(path: UrlPath.login, content: request);
+      var res =
+          await networkService.postHttp(path: UrlPath.login, content: request);
       print("Repo Login executed");
       print(res);
       if (res.token != null) {

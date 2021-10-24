@@ -8,7 +8,8 @@ class LoginState with _$LoginState {
     required bool showErrorMessage,
     required bool isLoading,
     required bool isSubmitting,
-    required Option<Either<ValueFailure, LoginModel>> authFailureOrSuccessOption,
+    required Option<Either<ValueFailure, LoginModel>>
+        authFailureOrSuccessOption,
   }) = _LoginState;
 
   factory LoginState.initial() => LoginState(
