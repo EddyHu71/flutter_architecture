@@ -17,5 +17,5 @@ Map<String, dynamic> _$$_BaseResponseToJson(_$_BaseResponse instance) =>
     <String, dynamic>{
       'data': instance.data,
       'error': instance.error,
-      'meta': instance.meta.toJson(),
+      'meta': instance.meta,
     };

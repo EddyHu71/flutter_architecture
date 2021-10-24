@@ -15,7 +15,7 @@ _$_Meta _$$_MetaFromJson(Map<String, dynamic> json) => _$_Meta(
     );
 
 Map<String, dynamic> _$$_MetaToJson(_$_Meta instance) => <String, dynamic>{
-      'info': instance.info?.toJson(),
+      'info': instance.info,
       'message': instance.message,
       'success': instance.success,
     };

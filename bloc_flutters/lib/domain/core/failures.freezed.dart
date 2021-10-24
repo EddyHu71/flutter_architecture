@@ -63,6 +63,12 @@ class _$ValueFailureTearOff {
     );
   }
 
+  InvalidLogin<T> invalidLogin<T>({required T? failedValue}) {
+    return InvalidLogin<T>(
+      failedValue: failedValue,
+    );
+  }
+
   InvalidEmail<T> invalidEmail<T>({required T? failedValue}) {
     return InvalidEmail<T>(
       failedValue: failedValue,
@@ -138,6 +144,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -161,6 +168,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -182,6 +190,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -204,6 +213,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -226,6 +236,7 @@ mixin _$ValueFailure<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -247,6 +258,7 @@ mixin _$ValueFailure<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -349,6 +361,7 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -375,6 +388,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -399,6 +413,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -427,6 +442,7 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -452,6 +468,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -476,6 +493,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -585,6 +603,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -611,6 +630,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -635,6 +655,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -663,6 +684,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -688,6 +710,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -712,6 +735,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -822,6 +846,7 @@ class _$TooShort<T> implements TooShort<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -848,6 +873,7 @@ class _$TooShort<T> implements TooShort<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -872,6 +898,7 @@ class _$TooShort<T> implements TooShort<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -900,6 +927,7 @@ class _$TooShort<T> implements TooShort<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -925,6 +953,7 @@ class _$TooShort<T> implements TooShort<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -949,6 +978,7 @@ class _$TooShort<T> implements TooShort<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -1052,6 +1082,7 @@ class _$Multiline<T> implements Multiline<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -1078,6 +1109,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -1102,6 +1134,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -1130,6 +1163,7 @@ class _$Multiline<T> implements Multiline<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -1155,6 +1189,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -1179,6 +1214,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -1288,6 +1324,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -1314,6 +1351,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -1338,6 +1376,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -1366,6 +1405,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -1391,6 +1431,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -1415,6 +1456,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -1518,6 +1560,7 @@ class _$InvalidName<T> implements InvalidName<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -1544,6 +1587,7 @@ class _$InvalidName<T> implements InvalidName<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -1568,6 +1612,7 @@ class _$InvalidName<T> implements InvalidName<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -1596,6 +1641,7 @@ class _$InvalidName<T> implements InvalidName<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -1621,6 +1667,7 @@ class _$InvalidName<T> implements InvalidName<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -1645,6 +1692,7 @@ class _$InvalidName<T> implements InvalidName<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -1746,6 +1794,7 @@ class _$InvalidPhone<T> implements InvalidPhone<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -1772,6 +1821,7 @@ class _$InvalidPhone<T> implements InvalidPhone<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -1796,6 +1846,7 @@ class _$InvalidPhone<T> implements InvalidPhone<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -1824,6 +1875,7 @@ class _$InvalidPhone<T> implements InvalidPhone<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -1849,6 +1901,7 @@ class _$InvalidPhone<T> implements InvalidPhone<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -1873,6 +1926,7 @@ class _$InvalidPhone<T> implements InvalidPhone<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -1898,6 +1952,240 @@ abstract class InvalidPhone<T> implements ValueFailure<T> {
   T? get failedValue;
   @JsonKey(ignore: true)
   $InvalidPhoneCopyWith<T, InvalidPhone<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InvalidLoginCopyWith<T, $Res> {
+  factory $InvalidLoginCopyWith(
+          InvalidLogin<T> value, $Res Function(InvalidLogin<T>) then) =
+      _$InvalidLoginCopyWithImpl<T, $Res>;
+  $Res call({T? failedValue});
+}
+
+/// @nodoc
+class _$InvalidLoginCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $InvalidLoginCopyWith<T, $Res> {
+  _$InvalidLoginCopyWithImpl(
+      InvalidLogin<T> _value, $Res Function(InvalidLogin<T>) _then)
+      : super(_value, (v) => _then(v as InvalidLogin<T>));
+
+  @override
+  InvalidLogin<T> get _value => super._value as InvalidLogin<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(InvalidLogin<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidLogin<T> implements InvalidLogin<T> {
+  const _$InvalidLogin({required this.failedValue});
+
+  @override
+  final T? failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidLogin(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is InvalidLogin<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  $InvalidLoginCopyWith<T, InvalidLogin<T>> get copyWith =>
+      _$InvalidLoginCopyWithImpl<T, InvalidLogin<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T? failedValue) empty,
+    required TResult Function(T? failedValue, int max) exceedingLength,
+    required TResult Function(T? failedValue, int min) lengthTooShort,
+    required TResult Function(T? failedValue) multiline,
+    required TResult Function(T? failedValue, int max) listTooLong,
+    required TResult Function(T? failedValue) invalidName,
+    required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
+    required TResult Function(T? failedValue) invalidEmail,
+    required TResult Function(T? failedValue) unregisteredPhone,
+    required TResult Function(T? failedValue) invalidObject,
+    required TResult Function() emptyObject,
+    required TResult Function(T? failedValue) shortToken,
+    required TResult Function(double failedValue, double maxBalance)
+        exceedingBalance,
+    required TResult Function(DateTime failedValue, String pattern)
+        invalidDateTime,
+    required TResult Function(T? failedValue) noteExceed,
+    required TResult Function(T? failedValue) confirmationNotMatch,
+    required TResult Function() failed,
+  }) {
+    return invalidLogin(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T? failedValue)? empty,
+    TResult Function(T? failedValue, int max)? exceedingLength,
+    TResult Function(T? failedValue, int min)? lengthTooShort,
+    TResult Function(T? failedValue)? multiline,
+    TResult Function(T? failedValue, int max)? listTooLong,
+    TResult Function(T? failedValue)? invalidName,
+    TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
+    TResult Function(T? failedValue)? invalidEmail,
+    TResult Function(T? failedValue)? unregisteredPhone,
+    TResult Function(T? failedValue)? invalidObject,
+    TResult Function()? emptyObject,
+    TResult Function(T? failedValue)? shortToken,
+    TResult Function(double failedValue, double maxBalance)? exceedingBalance,
+    TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
+    TResult Function(T? failedValue)? noteExceed,
+    TResult Function(T? failedValue)? confirmationNotMatch,
+    TResult Function()? failed,
+  }) {
+    return invalidLogin?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T? failedValue)? empty,
+    TResult Function(T? failedValue, int max)? exceedingLength,
+    TResult Function(T? failedValue, int min)? lengthTooShort,
+    TResult Function(T? failedValue)? multiline,
+    TResult Function(T? failedValue, int max)? listTooLong,
+    TResult Function(T? failedValue)? invalidName,
+    TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
+    TResult Function(T? failedValue)? invalidEmail,
+    TResult Function(T? failedValue)? unregisteredPhone,
+    TResult Function(T? failedValue)? invalidObject,
+    TResult Function()? emptyObject,
+    TResult Function(T? failedValue)? shortToken,
+    TResult Function(double failedValue, double maxBalance)? exceedingBalance,
+    TResult Function(DateTime failedValue, String pattern)? invalidDateTime,
+    TResult Function(T? failedValue)? noteExceed,
+    TResult Function(T? failedValue)? confirmationNotMatch,
+    TResult Function()? failed,
+    required TResult orElse(),
+  }) {
+    if (invalidLogin != null) {
+      return invalidLogin(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(TooShort<T> value) lengthTooShort,
+    required TResult Function(Multiline<T> value) multiline,
+    required TResult Function(ListTooLong<T> value) listTooLong,
+    required TResult Function(InvalidName<T> value) invalidName,
+    required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
+    required TResult Function(InvalidObject<T> value) invalidObject,
+    required TResult Function(EmptyObject<T> value) emptyObject,
+    required TResult Function(ShortToken<T> value) shortToken,
+    required TResult Function(ExceedBalance<T> value) exceedingBalance,
+    required TResult Function(InvalidDateTime<T> value) invalidDateTime,
+    required TResult Function(NoteExceed<T> value) noteExceed,
+    required TResult Function(ConfirmationNotMatch<T> value)
+        confirmationNotMatch,
+    required TResult Function(_Failed<T> value) failed,
+  }) {
+    return invalidLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(TooShort<T> value)? lengthTooShort,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+    TResult Function(InvalidName<T> value)? invalidName,
+    TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
+    TResult Function(InvalidObject<T> value)? invalidObject,
+    TResult Function(EmptyObject<T> value)? emptyObject,
+    TResult Function(ShortToken<T> value)? shortToken,
+    TResult Function(ExceedBalance<T> value)? exceedingBalance,
+    TResult Function(InvalidDateTime<T> value)? invalidDateTime,
+    TResult Function(NoteExceed<T> value)? noteExceed,
+    TResult Function(ConfirmationNotMatch<T> value)? confirmationNotMatch,
+    TResult Function(_Failed<T> value)? failed,
+  }) {
+    return invalidLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(TooShort<T> value)? lengthTooShort,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+    TResult Function(InvalidName<T> value)? invalidName,
+    TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
+    TResult Function(InvalidObject<T> value)? invalidObject,
+    TResult Function(EmptyObject<T> value)? emptyObject,
+    TResult Function(ShortToken<T> value)? shortToken,
+    TResult Function(ExceedBalance<T> value)? exceedingBalance,
+    TResult Function(InvalidDateTime<T> value)? invalidDateTime,
+    TResult Function(NoteExceed<T> value)? noteExceed,
+    TResult Function(ConfirmationNotMatch<T> value)? confirmationNotMatch,
+    TResult Function(_Failed<T> value)? failed,
+    required TResult orElse(),
+  }) {
+    if (invalidLogin != null) {
+      return invalidLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidLogin<T> implements ValueFailure<T> {
+  const factory InvalidLogin({required T? failedValue}) = _$InvalidLogin<T>;
+
+  T? get failedValue;
+  @JsonKey(ignore: true)
+  $InvalidLoginCopyWith<T, InvalidLogin<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1974,6 +2262,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -2000,6 +2289,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -2024,6 +2314,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -2052,6 +2343,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -2077,6 +2369,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -2101,6 +2394,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -2203,6 +2497,7 @@ class _$UnregisteredPhone<T> implements UnregisteredPhone<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -2229,6 +2524,7 @@ class _$UnregisteredPhone<T> implements UnregisteredPhone<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -2253,6 +2549,7 @@ class _$UnregisteredPhone<T> implements UnregisteredPhone<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -2281,6 +2578,7 @@ class _$UnregisteredPhone<T> implements UnregisteredPhone<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -2306,6 +2604,7 @@ class _$UnregisteredPhone<T> implements UnregisteredPhone<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -2330,6 +2629,7 @@ class _$UnregisteredPhone<T> implements UnregisteredPhone<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -2432,6 +2732,7 @@ class _$InvalidObject<T> implements InvalidObject<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -2458,6 +2759,7 @@ class _$InvalidObject<T> implements InvalidObject<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -2482,6 +2784,7 @@ class _$InvalidObject<T> implements InvalidObject<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -2510,6 +2813,7 @@ class _$InvalidObject<T> implements InvalidObject<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -2535,6 +2839,7 @@ class _$InvalidObject<T> implements InvalidObject<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -2559,6 +2864,7 @@ class _$InvalidObject<T> implements InvalidObject<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -2635,6 +2941,7 @@ class _$EmptyObject<T> implements EmptyObject<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -2661,6 +2968,7 @@ class _$EmptyObject<T> implements EmptyObject<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -2685,6 +2993,7 @@ class _$EmptyObject<T> implements EmptyObject<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -2713,6 +3022,7 @@ class _$EmptyObject<T> implements EmptyObject<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -2738,6 +3048,7 @@ class _$EmptyObject<T> implements EmptyObject<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -2762,6 +3073,7 @@ class _$EmptyObject<T> implements EmptyObject<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -2858,6 +3170,7 @@ class _$ShortToken<T> implements ShortToken<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -2884,6 +3197,7 @@ class _$ShortToken<T> implements ShortToken<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -2908,6 +3222,7 @@ class _$ShortToken<T> implements ShortToken<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -2936,6 +3251,7 @@ class _$ShortToken<T> implements ShortToken<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -2961,6 +3277,7 @@ class _$ShortToken<T> implements ShortToken<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -2985,6 +3302,7 @@ class _$ShortToken<T> implements ShortToken<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -3094,6 +3412,7 @@ class _$ExceedBalance<T> implements ExceedBalance<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -3120,6 +3439,7 @@ class _$ExceedBalance<T> implements ExceedBalance<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -3144,6 +3464,7 @@ class _$ExceedBalance<T> implements ExceedBalance<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -3172,6 +3493,7 @@ class _$ExceedBalance<T> implements ExceedBalance<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -3197,6 +3519,7 @@ class _$ExceedBalance<T> implements ExceedBalance<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -3221,6 +3544,7 @@ class _$ExceedBalance<T> implements ExceedBalance<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -3332,6 +3656,7 @@ class _$InvalidDateTime<T> implements InvalidDateTime<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -3358,6 +3683,7 @@ class _$InvalidDateTime<T> implements InvalidDateTime<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -3382,6 +3708,7 @@ class _$InvalidDateTime<T> implements InvalidDateTime<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -3410,6 +3737,7 @@ class _$InvalidDateTime<T> implements InvalidDateTime<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -3435,6 +3763,7 @@ class _$InvalidDateTime<T> implements InvalidDateTime<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -3459,6 +3788,7 @@ class _$InvalidDateTime<T> implements InvalidDateTime<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -3563,6 +3893,7 @@ class _$NoteExceed<T> implements NoteExceed<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -3589,6 +3920,7 @@ class _$NoteExceed<T> implements NoteExceed<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -3613,6 +3945,7 @@ class _$NoteExceed<T> implements NoteExceed<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -3641,6 +3974,7 @@ class _$NoteExceed<T> implements NoteExceed<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -3666,6 +4000,7 @@ class _$NoteExceed<T> implements NoteExceed<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -3690,6 +4025,7 @@ class _$NoteExceed<T> implements NoteExceed<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -3792,6 +4128,7 @@ class _$ConfirmationNotMatch<T> implements ConfirmationNotMatch<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -3818,6 +4155,7 @@ class _$ConfirmationNotMatch<T> implements ConfirmationNotMatch<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -3842,6 +4180,7 @@ class _$ConfirmationNotMatch<T> implements ConfirmationNotMatch<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -3870,6 +4209,7 @@ class _$ConfirmationNotMatch<T> implements ConfirmationNotMatch<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -3895,6 +4235,7 @@ class _$ConfirmationNotMatch<T> implements ConfirmationNotMatch<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -3919,6 +4260,7 @@ class _$ConfirmationNotMatch<T> implements ConfirmationNotMatch<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -3993,6 +4335,7 @@ class _$_Failed<T> implements _Failed<T> {
     required TResult Function(T? failedValue, int max) listTooLong,
     required TResult Function(T? failedValue) invalidName,
     required TResult Function(T? failedValue) invalidPhone,
+    required TResult Function(T? failedValue) invalidLogin,
     required TResult Function(T? failedValue) invalidEmail,
     required TResult Function(T? failedValue) unregisteredPhone,
     required TResult Function(T? failedValue) invalidObject,
@@ -4019,6 +4362,7 @@ class _$_Failed<T> implements _Failed<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -4043,6 +4387,7 @@ class _$_Failed<T> implements _Failed<T> {
     TResult Function(T? failedValue, int max)? listTooLong,
     TResult Function(T? failedValue)? invalidName,
     TResult Function(T? failedValue)? invalidPhone,
+    TResult Function(T? failedValue)? invalidLogin,
     TResult Function(T? failedValue)? invalidEmail,
     TResult Function(T? failedValue)? unregisteredPhone,
     TResult Function(T? failedValue)? invalidObject,
@@ -4071,6 +4416,7 @@ class _$_Failed<T> implements _Failed<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidPhone<T> value) invalidPhone,
+    required TResult Function(InvalidLogin<T> value) invalidLogin,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(UnregisteredPhone<T> value) unregisteredPhone,
     required TResult Function(InvalidObject<T> value) invalidObject,
@@ -4096,6 +4442,7 @@ class _$_Failed<T> implements _Failed<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,
@@ -4120,6 +4467,7 @@ class _$_Failed<T> implements _Failed<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidPhone<T> value)? invalidPhone,
+    TResult Function(InvalidLogin<T> value)? invalidLogin,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(UnregisteredPhone<T> value)? unregisteredPhone,
     TResult Function(InvalidObject<T> value)? invalidObject,

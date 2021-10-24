@@ -1,8 +1,11 @@
-import 'package:bloc_flutters/application/login/bloc/login_bloc.dart';
+import 'package:bloc_flutters/application/login/login_bloc.dart';
+import 'package:bloc_flutters/presentation/core/alerts.dart';
 import 'package:bloc_flutters/presentation/core/components.dart';
 import 'package:bloc_flutters/presentation/core/utils.dart';
+import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -10,7 +13,22 @@ class LoginPage extends StatelessWidget {
     // TODO: implement build
     return BlocConsumer<LoginBloc, LoginState>(
       listener: (BuildContext context, LoginState state) {
-        state.authFailureOrSuccessOption.fold(() => null, (a) => null);
+        state.authFailureOrSuccessOption.fold(() => null, 
+        (a) => a.fold(
+          (l) => l.maybeMap(
+            orElse: () => null,
+            invalidLogin : (_) => {
+             Alerts.logoutAlert(
+               title: "Login Failed",
+               subTitle: "Your login is invalid",
+               withCancel: false,
+               onPressed: () {
+                 Get.back();
+             }, onCancelPressed: () {
+
+             }, context: context)
+            }
+          ), (r) => Get.offNamed(Routers.mainpage)));
       },
       builder: (BuildContext context, LoginState state) {
         return Scaffold(
@@ -25,6 +43,7 @@ class LoginPage extends StatelessWidget {
                 child : Image.asset(Utils.LOGO)),
               TextFormField(
                 keyboardType: TextInputType.text,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: InputDecoration(
                   fillColor: Colors.grey.withOpacity(0.4),
                   hintText: "Email",
@@ -41,12 +60,14 @@ class LoginPage extends StatelessWidget {
 
               TextFormField(
                 keyboardType: TextInputType.text,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: InputDecoration(
                   fillColor: Colors.grey.withOpacity(0.4),
                   hintText: "Password",
                   border: InputBorder.none, 
                   prefixIcon: Icon(Icons.lock)
                 ),
+                obscureText: true,
                 onChanged: (value) => context.read<LoginBloc>().add(LoginEvent.onPasswordChanged(value)),
                 validator: (context) => state.email.value.fold(
                   (l) => l.maybeMap(
@@ -63,6 +84,7 @@ class LoginPage extends StatelessWidget {
                 child: Components.button(
                     text: "Login",
                     onPressed: () {
+                      print("Login");
                       context.read<LoginBloc>().add(LoginEvent.signIn());
                       // Get.off(HomePage());
                     }),
