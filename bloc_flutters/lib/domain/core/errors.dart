@@ -1,9 +1,9 @@
-import 'package:bloc_flutters/domain/login/login_failure.dart';
+import 'package:bloc_flutters/domain/core/failures.dart';
 
 class NotAuthenticatedError extends Error {}
 
 class UnexpectedValueError extends Error {
-  final LoginFailure valueFailure;
+  final ValueFailure valueFailure;
 
   UnexpectedValueError(this.valueFailure);
 

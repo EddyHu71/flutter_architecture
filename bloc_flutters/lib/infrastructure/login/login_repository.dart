@@ -1,24 +1,35 @@
+import 'package:bloc_flutters/domain/core/failures.dart';
+import 'package:bloc_flutters/domain/core/i_network_service.dart';
 import 'package:bloc_flutters/domain/login/i_login_repository.dart';
+import 'package:bloc_flutters/infrastructure/core/link_connect.dart';
+import 'package:bloc_flutters/model/response/login_model.dart';
 import 'package:dartz/dartz.dart';
-import 'package:bloc_flutters/domain/login/login_failure.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ILoginRepository)
-
 class LoginRepository implements ILoginRepository {
+  final INetworkService iNetworkService;
+  LoginRepository(this.iNetworkService);
   @override
-  Future<Either<LoginFailure, Unit>> login(String email, String password) async {
+  Future<Either<ValueFailure, LoginModel>> login(
+      String email, String password) async {
     // TODO: implement login
     // throw UnimplementedError();
 
     try {
-      if (email == "admin" && password == "email") {
+      final Map<String, dynamic> request = {
+        "email": email,
+        "password": password,
+      };
+      final res = await iNetworkService.postHttp(path: UrlPath.login, content : request);
+      
+      if (res.token != null) {
         print("Login success");
-        return right(unit);
+        return right(LoginModel.fromJson(res));
       }
-      return left(LoginFailure.invalidLogin());
+      return left(ValueFailure.failed());
     } catch (e) {
-      return left(LoginFailure.failed());
+      return left(ValueFailure.failed());
     }
   }
 }

@@ -7,10 +7,5 @@ class Urls {
 
 class UrlPath {
   UrlPath();
-  static const String login = '/auth/login';
-
-  static const String getToken = '/auth/otp';
-  static const String getTokenEmail = '/auth/otp-email';
-  static const String validateToken = '/auth/validate-otp';
-  static const String register = '/auth/register';
+  static const String login = '/api/login';
 }

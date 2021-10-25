@@ -28,6 +28,9 @@ class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.invalidPhone({
     required T? failedValue,
   }) = InvalidPhone<T>;
+  const factory ValueFailure.invalidPassword({
+    required T? failedValue,
+  }) = InvalidPassword<T>;
   // const factory ValueFailure.invalidOtp({
   //   required T? failedValue,
   // }) = InvalidOtp<T?>;

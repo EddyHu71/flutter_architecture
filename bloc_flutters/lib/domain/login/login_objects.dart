@@ -1,11 +1,11 @@
+import 'package:bloc_flutters/domain/core/failures.dart';
 import 'package:bloc_flutters/domain/core/value_objects.dart';
-import 'package:bloc_flutters/domain/login/login_failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:bloc_flutters/domain/core/value_validators.dart';
 
 class Email extends ValueObject<String> {
   @override
-  final Either<LoginFailure<String>, String> value;
+  final Either<ValueFailure<String>, String> value;
 
   factory Email(String input) {
     assert(input != null);
@@ -18,7 +18,7 @@ class Email extends ValueObject<String> {
 
 class Password extends ValueObject<String> {
   @override
-  final Either<LoginFailure<String>, String> value;
+  final Either<ValueFailure<String>, String> value;
 
   factory Password(String input) {
     assert(input != null);
