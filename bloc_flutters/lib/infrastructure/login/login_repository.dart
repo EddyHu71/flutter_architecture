@@ -8,21 +8,21 @@ import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ILoginRepository)
 class LoginRepository implements ILoginRepository {
-  final INetworkService iNetworkService;
-  LoginRepository(this.iNetworkService);
+  final INetworkService networkService;
+  LoginRepository(this.networkService);
   @override
   Future<Either<ValueFailure, LoginModel>> login(
       String email, String password) async {
     // TODO: implement login
     // throw UnimplementedError();
-
     try {
       final Map<String, dynamic> request = {
-        "email": email,
-        "password": password,
+        "email" : email,
+        "password" : password,
       };
-      final res = await iNetworkService.postHttp(path: UrlPath.login, content : request);
-      
+      var res = await networkService.postHttp(path: UrlPath.login, content: request);
+      print("Repo Login executed");
+      print(res);
       if (res.token != null) {
         print("Login success");
         return right(LoginModel.fromJson(res));

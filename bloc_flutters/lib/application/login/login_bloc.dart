@@ -15,46 +15,58 @@ part 'login_bloc.freezed.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final ILoginRepository iLoginRepository;
   LoginBloc(this.iLoginRepository) : super(LoginState.initial()) {
+    // ignore: void_checks
     on<LoginEvent>((event, emit) async* {
       // TODO: implement event handler
-      yield* event.map(
-          signIn: (e) async* {},
-          onEmailChanged: (e) async* {
-            yield state.copyWith(
-              email: Email(e.email),
-              authFailureOrSuccessOption: none(),
-            );
-          },
-          onPasswordChanged: (e) async* {
-            yield state.copyWith(
-                password: Password(e.password),
-                authFailureOrSuccessOption: none());
-          });
-    });
-  }
-
-  Stream<LoginState> _signIn() async* {
-    Either<ValueFailure, LoginModel> failOrSuccess;
-    final isEmailValid = state.email.isValid();
-    final isPasswordValid = state.password.isValid();
-
-    if (isEmailValid && isPasswordValid) {
-      yield state.copyWith(
-        isSubmitting: false,
-        isLoading: false,
-        authFailureOrSuccessOption: none(),
-      );
-
-      await Future.delayed(Duration(seconds: 1));
-      failOrSuccess = await iLoginRepository.login(state.email.getOrCrash(), state.password.getOrCrash());
-      print("Login success");
+      // yield* event.map(
+      //     signIn: (e) async* {
+      //       yield* _signIn();
+      //     },
+      //     onEmailChanged: (e) async* {
+      //       yield state.copyWith(
+      //         email: Email(e.email),
+      //         authFailureOrSuccessOption: none(),
+      //       );
+      //     },
+      //     onPasswordChanged: (e) async* {
+      //       yield state.copyWith(
+      //           password: Password(e.password),
+      //           authFailureOrSuccessOption: none());
+      //     });
     }
-
-    yield state.copyWith(
-      isSubmitting: false,
-      isLoading: false,
-      showErrorMessage: false,
-      authFailureOrSuccessOption: none()
+    
     );
   }
+
+//   Stream<LoginState> _signIn() async* {
+//     Either<ValueFailure, LoginModel>? failOrSuccess;
+//     final isEmailValid = state.email.isValid();
+//     final isPasswordValid = state.password.isValid();
+
+//     if (isEmailValid && isPasswordValid) {
+//       yield state.copyWith(
+//         isSubmitting: false,
+//         isLoading: false,
+//         authFailureOrSuccessOption: none(),
+//       );
+
+//       await Future.delayed(Duration(seconds: 1));
+//       failOrSuccess = await iLoginRepository.login(state.email.getOrCrash(), state.password.getOrCrash());
+//         isLoading: true,
+//         authFailureOrSuccessOption: none(),
+//       );
+
+//       await Future.delayed(const Duration(seconds: 1));
+//       failOrSuccess = await iLoginRepository.login(
+//         state.email.getOrCrash(), state.password.getOrCrash());
+//       print("Login success");
+//     }
+
+//     yield state.copyWith(
+//       isSubmitting: false,
+//       isLoading: false,
+//       showErrorMessage: true,
+//       authFailureOrSuccessOption: optionOf(failOrSuccess)
+//     );
+//   }
 }
