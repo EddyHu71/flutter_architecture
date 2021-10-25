@@ -22,11 +22,11 @@ class _$ViewDataTearOff {
   const _$ViewDataTearOff();
 
   _ViewData call(
-      {int? page,
-      @JsonKey(name: 'per_page') int? perPage,
-      int? total,
-      @JsonKey(name: 'total_pages') int? totalPages,
-      List<Datum>? data,
+      {required int page,
+      @JsonKey(name: 'per_page') required int perPage,
+      required int total,
+      @JsonKey(name: 'total_pages') required int totalPages,
+      required List<Datum> data,
       Support? support}) {
     return _ViewData(
       page: page,
@@ -48,13 +48,13 @@ const $ViewData = _$ViewDataTearOff();
 
 /// @nodoc
 mixin _$ViewData {
-  int? get page => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
   @JsonKey(name: 'per_page')
-  int? get perPage => throw _privateConstructorUsedError;
-  int? get total => throw _privateConstructorUsedError;
+  int get perPage => throw _privateConstructorUsedError;
+  int get total => throw _privateConstructorUsedError;
   @JsonKey(name: 'total_pages')
-  int? get totalPages => throw _privateConstructorUsedError;
-  List<Datum>? get data => throw _privateConstructorUsedError;
+  int get totalPages => throw _privateConstructorUsedError;
+  List<Datum> get data => throw _privateConstructorUsedError;
   Support? get support => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -68,11 +68,11 @@ abstract class $ViewDataCopyWith<$Res> {
   factory $ViewDataCopyWith(ViewData value, $Res Function(ViewData) then) =
       _$ViewDataCopyWithImpl<$Res>;
   $Res call(
-      {int? page,
-      @JsonKey(name: 'per_page') int? perPage,
-      int? total,
-      @JsonKey(name: 'total_pages') int? totalPages,
-      List<Datum>? data,
+      {int page,
+      @JsonKey(name: 'per_page') int perPage,
+      int total,
+      @JsonKey(name: 'total_pages') int totalPages,
+      List<Datum> data,
       Support? support});
 
   $SupportCopyWith<$Res>? get support;
@@ -99,23 +99,23 @@ class _$ViewDataCopyWithImpl<$Res> implements $ViewDataCopyWith<$Res> {
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       perPage: perPage == freezed
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       total: total == freezed
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       totalPages: totalPages == freezed
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<Datum>?,
+              as List<Datum>,
       support: support == freezed
           ? _value.support
           : support // ignore: cast_nullable_to_non_nullable
@@ -141,11 +141,11 @@ abstract class _$ViewDataCopyWith<$Res> implements $ViewDataCopyWith<$Res> {
       __$ViewDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? page,
-      @JsonKey(name: 'per_page') int? perPage,
-      int? total,
-      @JsonKey(name: 'total_pages') int? totalPages,
-      List<Datum>? data,
+      {int page,
+      @JsonKey(name: 'per_page') int perPage,
+      int total,
+      @JsonKey(name: 'total_pages') int totalPages,
+      List<Datum> data,
       Support? support});
 
   @override
@@ -174,23 +174,23 @@ class __$ViewDataCopyWithImpl<$Res> extends _$ViewDataCopyWithImpl<$Res>
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       perPage: perPage == freezed
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       total: total == freezed
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       totalPages: totalPages == freezed
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<Datum>?,
+              as List<Datum>,
       support: support == freezed
           ? _value.support
           : support // ignore: cast_nullable_to_non_nullable
@@ -203,28 +203,28 @@ class __$ViewDataCopyWithImpl<$Res> extends _$ViewDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ViewData implements _ViewData {
   _$_ViewData(
-      {this.page,
-      @JsonKey(name: 'per_page') this.perPage,
-      this.total,
-      @JsonKey(name: 'total_pages') this.totalPages,
-      this.data,
+      {required this.page,
+      @JsonKey(name: 'per_page') required this.perPage,
+      required this.total,
+      @JsonKey(name: 'total_pages') required this.totalPages,
+      required this.data,
       this.support});
 
   factory _$_ViewData.fromJson(Map<String, dynamic> json) =>
       _$$_ViewDataFromJson(json);
 
   @override
-  final int? page;
+  final int page;
   @override
   @JsonKey(name: 'per_page')
-  final int? perPage;
+  final int perPage;
   @override
-  final int? total;
+  final int total;
   @override
   @JsonKey(name: 'total_pages')
-  final int? totalPages;
+  final int totalPages;
   @override
-  final List<Datum>? data;
+  final List<Datum> data;
   @override
   final Support? support;
 
@@ -264,27 +264,27 @@ class _$_ViewData implements _ViewData {
 
 abstract class _ViewData implements ViewData {
   factory _ViewData(
-      {int? page,
-      @JsonKey(name: 'per_page') int? perPage,
-      int? total,
-      @JsonKey(name: 'total_pages') int? totalPages,
-      List<Datum>? data,
+      {required int page,
+      @JsonKey(name: 'per_page') required int perPage,
+      required int total,
+      @JsonKey(name: 'total_pages') required int totalPages,
+      required List<Datum> data,
       Support? support}) = _$_ViewData;
 
   factory _ViewData.fromJson(Map<String, dynamic> json) = _$_ViewData.fromJson;
 
   @override
-  int? get page;
+  int get page;
   @override
   @JsonKey(name: 'per_page')
-  int? get perPage;
+  int get perPage;
   @override
-  int? get total;
+  int get total;
   @override
   @JsonKey(name: 'total_pages')
-  int? get totalPages;
+  int get totalPages;
   @override
-  List<Datum>? get data;
+  List<Datum> get data;
   @override
   Support? get support;
   @override

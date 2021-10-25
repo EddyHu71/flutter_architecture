@@ -10,7 +10,7 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
 }
 
 Either<ValueFailure<String>, String> validateEmail(String input) {
-  if (input.contains("@")) {
+  if (!input.contains("@")) {
     return left(ValueFailure.invalidEmail(failedValue: input));
   } else {
     return right(input);

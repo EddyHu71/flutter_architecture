@@ -7,11 +7,11 @@ part of 'datum.dart';
 // **************************************************************************
 
 _$_Datum _$$_DatumFromJson(Map<String, dynamic> json) => _$_Datum(
-      id: json['id'] as int?,
-      name: json['name'] as String?,
-      year: json['year'] as int?,
-      color: json['color'] as String?,
-      pantoneValue: json['pantone_value'] as String?,
+      id: json['id'] as int,
+      name: json['name'] as String,
+      year: json['year'] as int,
+      color: json['color'] as String,
+      pantoneValue: json['pantone_value'] as String,
     );
 
 Map<String, dynamic> _$$_DatumToJson(_$_Datum instance) => <String, dynamic>{

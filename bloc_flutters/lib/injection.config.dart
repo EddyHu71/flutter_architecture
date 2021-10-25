@@ -11,16 +11,17 @@ import 'package:hive_flutter/hive_flutter.dart' as _i4;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:logger/logger.dart' as _i7;
 
-import 'application/login/login_bloc.dart' as _i17;
+import 'application/login/login_bloc.dart' as _i18;
+import 'application/view_data/view_data_bloc.dart' as _i15;
 import 'domain/core/i_network_service.dart' as _i11;
 import 'domain/core/i_storage.dart' as _i5;
-import 'domain/login/i_login_repository.dart' as _i15;
+import 'domain/login/i_login_repository.dart' as _i16;
 import 'domain/view_data/i_view_repository.dart' as _i13;
 import 'infrastructure/core/auth_interceptor.dart' as _i9;
 import 'infrastructure/core/network_service.dart' as _i12;
-import 'infrastructure/core/register_module.dart' as _i18;
+import 'infrastructure/core/register_module.dart' as _i19;
 import 'infrastructure/core/storage.dart' as _i6;
-import 'infrastructure/login/login_repository.dart' as _i16;
+import 'infrastructure/login/login_repository.dart' as _i17;
 import 'infrastructure/view_data/view_data_repository.dart' as _i14;
 import 'simple_bloc_delegate.dart'
     as _i8; // ignore_for_file: unnecessary_lambdas
@@ -46,11 +47,13 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       get<_i10.Dio>(), get<_i5.IStorage>(), get<_i3.Connectivity>()));
   gh.lazySingleton<_i13.IViewRepository>(
       () => _i14.ViewRepository(get<_i11.INetworkService>()));
-  gh.lazySingleton<_i15.ILoginRepository>(
-      () => _i16.LoginRepository(get<_i11.INetworkService>()));
-  gh.factory<_i17.LoginBloc>(
-      () => _i17.LoginBloc(get<_i15.ILoginRepository>()));
+  gh.factory<_i15.ViewDataBloc>(
+      () => _i15.ViewDataBloc(get<_i13.IViewRepository>()));
+  gh.lazySingleton<_i16.ILoginRepository>(
+      () => _i17.LoginRepository(get<_i11.INetworkService>()));
+  gh.factory<_i18.LoginBloc>(
+      () => _i18.LoginBloc(get<_i16.ILoginRepository>()));
   return get;
 }
 
-class _$RegisterModule extends _i18.RegisterModule {}
+class _$RegisterModule extends _i19.RegisterModule {}

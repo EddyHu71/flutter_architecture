@@ -22,11 +22,11 @@ class _$DatumTearOff {
   const _$DatumTearOff();
 
   _Datum call(
-      {int? id,
-      String? name,
-      int? year,
-      String? color,
-      @JsonKey(name: 'pantone_value') String? pantoneValue}) {
+      {required int id,
+      required String name,
+      required int year,
+      required String color,
+      @JsonKey(name: 'pantone_value') required String pantoneValue}) {
     return _Datum(
       id: id,
       name: name,
@@ -46,12 +46,12 @@ const $Datum = _$DatumTearOff();
 
 /// @nodoc
 mixin _$Datum {
-  int? get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  int? get year => throw _privateConstructorUsedError;
-  String? get color => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  int get year => throw _privateConstructorUsedError;
+  String get color => throw _privateConstructorUsedError;
   @JsonKey(name: 'pantone_value')
-  String? get pantoneValue => throw _privateConstructorUsedError;
+  String get pantoneValue => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -63,11 +63,11 @@ abstract class $DatumCopyWith<$Res> {
   factory $DatumCopyWith(Datum value, $Res Function(Datum) then) =
       _$DatumCopyWithImpl<$Res>;
   $Res call(
-      {int? id,
-      String? name,
-      int? year,
-      String? color,
-      @JsonKey(name: 'pantone_value') String? pantoneValue});
+      {int id,
+      String name,
+      int year,
+      String color,
+      @JsonKey(name: 'pantone_value') String pantoneValue});
 }
 
 /// @nodoc
@@ -90,23 +90,23 @@ class _$DatumCopyWithImpl<$Res> implements $DatumCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       year: year == freezed
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       color: color == freezed
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       pantoneValue: pantoneValue == freezed
           ? _value.pantoneValue
           : pantoneValue // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -117,11 +117,11 @@ abstract class _$DatumCopyWith<$Res> implements $DatumCopyWith<$Res> {
       __$DatumCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? id,
-      String? name,
-      int? year,
-      String? color,
-      @JsonKey(name: 'pantone_value') String? pantoneValue});
+      {int id,
+      String name,
+      int year,
+      String color,
+      @JsonKey(name: 'pantone_value') String pantoneValue});
 }
 
 /// @nodoc
@@ -145,23 +145,23 @@ class __$DatumCopyWithImpl<$Res> extends _$DatumCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       year: year == freezed
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       color: color == freezed
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       pantoneValue: pantoneValue == freezed
           ? _value.pantoneValue
           : pantoneValue // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -170,26 +170,26 @@ class __$DatumCopyWithImpl<$Res> extends _$DatumCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Datum implements _Datum {
   _$_Datum(
-      {this.id,
-      this.name,
-      this.year,
-      this.color,
-      @JsonKey(name: 'pantone_value') this.pantoneValue});
+      {required this.id,
+      required this.name,
+      required this.year,
+      required this.color,
+      @JsonKey(name: 'pantone_value') required this.pantoneValue});
 
   factory _$_Datum.fromJson(Map<String, dynamic> json) =>
       _$$_DatumFromJson(json);
 
   @override
-  final int? id;
+  final int id;
   @override
-  final String? name;
+  final String name;
   @override
-  final int? year;
+  final int year;
   @override
-  final String? color;
+  final String color;
   @override
   @JsonKey(name: 'pantone_value')
-  final String? pantoneValue;
+  final String pantoneValue;
 
   @override
   String toString() {
@@ -226,25 +226,25 @@ class _$_Datum implements _Datum {
 
 abstract class _Datum implements Datum {
   factory _Datum(
-      {int? id,
-      String? name,
-      int? year,
-      String? color,
-      @JsonKey(name: 'pantone_value') String? pantoneValue}) = _$_Datum;
+      {required int id,
+      required String name,
+      required int year,
+      required String color,
+      @JsonKey(name: 'pantone_value') required String pantoneValue}) = _$_Datum;
 
   factory _Datum.fromJson(Map<String, dynamic> json) = _$_Datum.fromJson;
 
   @override
-  int? get id;
+  int get id;
   @override
-  String? get name;
+  String get name;
   @override
-  int? get year;
+  int get year;
   @override
-  String? get color;
+  String get color;
   @override
   @JsonKey(name: 'pantone_value')
-  String? get pantoneValue;
+  String get pantoneValue;
   @override
   @JsonKey(ignore: true)
   _$DatumCopyWith<_Datum> get copyWith => throw _privateConstructorUsedError;

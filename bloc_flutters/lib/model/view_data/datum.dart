@@ -6,11 +6,11 @@ part 'datum.g.dart';
 @freezed
 class Datum with _$Datum {
   factory Datum({
-    int? id,
-    String? name,
-    int? year,
-    String? color,
-    @JsonKey(name: 'pantone_value') String? pantoneValue,
+    required int id,
+    required String name,
+    required int year,
+    required String color,
+    @JsonKey(name: 'pantone_value') required String pantoneValue,
   }) = _Datum;
 
   factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);
