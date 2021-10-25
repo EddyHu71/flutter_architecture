@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bloc_flutters/presentation/core/colours.dart';
+import 'package:get/get.dart';
 
 class Components {
   static RawMaterialButton button({
@@ -36,49 +37,27 @@ class Components {
             ),
           ));
 
-  static Card weatherList(
-          {required double? longitude,
-          required double? lattitude,
-          required String? title,
+  static Card listData(
+          {required String? name,
           required VoidCallback? onPressed,
-          required String? description}) =>
+          required String? year}) =>
       Card(
           elevation: 2,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           clipBehavior: Clip.antiAlias,
           child: InkWell(
-              onTap: onPressed,
-              child: Container(
-                height: 224,
-                margin: EdgeInsets.all(8),
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                          child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text("Lon : " + longitude.toString(),
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          SizedBox(width: 8),
-                          Text("Lat : " + lattitude.toString(),
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                        ],
-                      )),
-                    ),
-                    Expanded(
-                        flex: 1,
-                        child: Text(title.toString(),
-                            style: TextStyle(
-                                fontSize: 16.0, fontWeight: FontWeight.bold))),
-                    Expanded(flex: 3, child: Text(description.toString())),
-                  ],
-                ),
-              )));
+            onTap: onPressed,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(name ?? '',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 16)),
+                Text(year ?? '')
+              ],
+            ),
+          ));
 }

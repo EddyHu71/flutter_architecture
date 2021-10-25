@@ -1,17 +1,17 @@
+import 'package:bloc_flutters/presentation/home/view_data/view_data_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class HomePage extends HookWidget {
-
-    final _pages = [
-    Center(child : Text("Home")),
-    Center(child : Text("Profile")),
+  final _pages = [
+    ViewData(),
+    Center(child: Text("Profile")),
     // Center(child : Text("ABC"))
   ];
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-     final _selectedIndex = useState(0);
+    final _selectedIndex = useState(0);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -36,5 +36,4 @@ class HomePage extends HookWidget {
       ),
     );
   }
-
 }
