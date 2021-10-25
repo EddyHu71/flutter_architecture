@@ -1,10 +1,11 @@
 import 'package:bloc_flutters/application/view_data/view_data_bloc.dart';
 import 'package:bloc_flutters/injection.dart';
+import 'package:bloc_flutters/presentation/core/alerts.dart';
 import 'package:bloc_flutters/presentation/core/components.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ViewData extends HookWidget {
@@ -12,19 +13,58 @@ class ViewData extends HookWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return BlocProvider<ViewDataBloc>(create: (context) => getIt<ViewDataBloc>()..add(ViewDataEvent.started()),
-    child : BlocConsumer<ViewDataBloc, ViewDataState>(
-        listener: (BuildContext context, ViewDataState state) {
-      state.maybeMap(
-        orElse: () {},
-        loaded: (s) {
-          s.optionFailedOrSuccess.fold(
-            () => null,
-           (a) => a.fold((l) => l.maybeMap(orElse: () {},), (r) => null)
-           );
-        }
-      );
-    }, builder: (BuildContext context, ViewDataState state) {
+    return BlocProvider<ViewDataBloc>(
+      create: (context) =>
+          getIt<ViewDataBloc>()..add(const ViewDataEvent.started()),
+      child: BlocConsumer<ViewDataBloc, ViewDataState>(
+          listener: (BuildContext context, ViewDataState state) {
+        state.maybeMap(
+            orElse: () {},
+            loaded: (s) {
+              // s.optionFailedOrSuccess.fold(
+              //     () => null,
+              //     (a) => a.fold(
+              //         (l) => l.maybeMap(
+              //               orElse: () {},
+              //             ),
+              //         (r) => null));
+              s.optionFailedOrSuccess.match(
+                  (l) => l.fold(
+                      (l) => l.maybeMap(
+                            noInternet: (_) {
+                              Alerts.logoutAlert(
+                                  title: "No Internet",
+                                  subTitle: "You don't connect with internet",
+                                  onPressed: () {
+                                    Get.back();
+                                  },
+                                  onCancelPressed: () {},
+                                  context: context);
+                            },
+                            failed: (_) {
+                              Alerts.logoutAlert(
+                                  title: "Failed",
+                                  subTitle: "Failed to connect",
+                                  onPressed: () {},
+                                  onCancelPressed: () {},
+                                  context: context);
+                            },
+                            noData: (_) {
+                              Alerts.logoutAlert(
+                                  title: "No Data",
+                                  subTitle: "No Data",
+                                  onPressed: () {
+                                    Get.back();
+                                  },
+                                  onCancelPressed: () {},
+                                  context: context);
+                            },
+                            orElse: () {},
+                          ),
+                      (r) => null),
+                  () => null);
+            });
+      }, builder: (BuildContext context, ViewDataState state) {
         return SafeArea(
           child: Container(
             margin: const EdgeInsets.only(top: 8, left: 8, right: 8),
@@ -72,7 +112,8 @@ class ViewData extends HookWidget {
                                       )),
                                     ),
                                     Container(
-                                        width: MediaQuery.of(context).size.width,
+                                        width:
+                                            MediaQuery.of(context).size.width,
                                         height: 12.0,
                                         color: Colors.white),
                                     Expanded(
@@ -91,24 +132,35 @@ class ViewData extends HookWidget {
                     },
                     itemCount: 10),
                 loaded: (s) {
-                  s.optionFailedOrSuccess.fold(
-                      () => const Center(child: Text("No Data")),
-                      (a) => a.fold(
+                  // s.optionFailedOrSuccess.fold(
+                  //     () => const Center(child: Text("No Data")),
+                  //     (a) => a.fold(
+                  //         (l) => const Center(child: Text("No Data")),
+                  //         (listData) => ListView.builder(
+                  //             itemCount: listData.data?.length,
+                  //             itemBuilder: (BuildContext context, int index) {
+                  //               return Components.listData(
+                  //                   name: listData.data?[index].name,
+                  //                   onPressed: () {},
+                  //                   year:
+                  //                       listData.data?[index].year.toString());
+                  //             })));
+                  s.optionFailedOrSuccess.match(
+                      (t) => t.fold(
                           (l) => const Center(child: Text("No Data")),
-                          (listData) => ListView.builder(
-                              itemCount: listData.data?.length,
-                              itemBuilder: (BuildContext context, int index) {
+                          (listData) => ListView.builder(itemBuilder:
+                                  (BuildContext context, int index) {
                                 return Components.listData(
-                                        name: listData.data?[index].name,
-                                        onPressed: () {
-                                          
-                                        },
-                                        year: listData.data?[index].year.toString()  );
-                              })));
+                                    name: listData.data?[index].name,
+                                    onPressed: () {},
+                                    year:
+                                        listData.data?[index].year.toString());
+                              })),
+                      () => const Center(child: Text("No Data")));
                 }),
           ),
         );
       }),
-     );
+    );
   }
 }

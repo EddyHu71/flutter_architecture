@@ -187,7 +187,7 @@ class _$ViewDataStateTearOff {
   }
 
   _Loaded loaded(
-      {required Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess}) {
+      {required Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess}) {
     return _Loaded(
       optionFailedOrSuccess: optionFailedOrSuccess,
     );
@@ -204,7 +204,7 @@ mixin _$ViewDataState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess)
+            Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess)
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -213,7 +213,7 @@ mixin _$ViewDataState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess)?
+            Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess)?
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -222,7 +222,7 @@ mixin _$ViewDataState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess)?
+            Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess)?
         loaded,
     required TResult orElse(),
   }) =>
@@ -309,7 +309,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess)
+            Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess)
         loaded,
   }) {
     return initial();
@@ -321,7 +321,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess)?
+            Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess)?
         loaded,
   }) {
     return initial?.call();
@@ -333,7 +333,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess)?
+            Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess)?
         loaded,
     required TResult orElse(),
   }) {
@@ -423,7 +423,7 @@ class _$_Loading implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess)
+            Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess)
         loaded,
   }) {
     return loading();
@@ -435,7 +435,7 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess)?
+            Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess)?
         loaded,
   }) {
     return loading?.call();
@@ -447,7 +447,7 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess)?
+            Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess)?
         loaded,
     required TResult orElse(),
   }) {
@@ -500,7 +500,7 @@ abstract class _Loading implements ViewDataState {
 abstract class _$LoadedCopyWith<$Res> {
   factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
       __$LoadedCopyWithImpl<$Res>;
-  $Res call({Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess});
+  $Res call({Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess});
 }
 
 /// @nodoc
@@ -520,7 +520,7 @@ class __$LoadedCopyWithImpl<$Res> extends _$ViewDataStateCopyWithImpl<$Res>
       optionFailedOrSuccess: optionFailedOrSuccess == freezed
           ? _value.optionFailedOrSuccess
           : optionFailedOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<ValueFailure, ViewData>>,
+              as Option<Either<ViewFailure, ViewData>>,
     ));
   }
 }
@@ -531,7 +531,7 @@ class _$_Loaded implements _Loaded {
   const _$_Loaded({required this.optionFailedOrSuccess});
 
   @override
-  final Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess;
+  final Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess;
 
   @override
   String toString() {
@@ -561,7 +561,7 @@ class _$_Loaded implements _Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess)
+            Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess)
         loaded,
   }) {
     return loaded(optionFailedOrSuccess);
@@ -573,7 +573,7 @@ class _$_Loaded implements _Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess)?
+            Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess)?
         loaded,
   }) {
     return loaded?.call(optionFailedOrSuccess);
@@ -585,7 +585,7 @@ class _$_Loaded implements _Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            Option<Either<ValueFailure, ViewData>> optionFailedOrSuccess)?
+            Option<Either<ViewFailure, ViewData>> optionFailedOrSuccess)?
         loaded,
     required TResult orElse(),
   }) {
@@ -632,10 +632,10 @@ class _$_Loaded implements _Loaded {
 
 abstract class _Loaded implements ViewDataState {
   const factory _Loaded(
-      {required Option<Either<ValueFailure, ViewData>>
+      {required Option<Either<ViewFailure, ViewData>>
           optionFailedOrSuccess}) = _$_Loaded;
 
-  Option<Either<ValueFailure, ViewData>> get optionFailedOrSuccess;
+  Option<Either<ViewFailure, ViewData>> get optionFailedOrSuccess;
   @JsonKey(ignore: true)
   _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:bloc_flutters/domain/core/failures.dart';
 import 'package:bloc_flutters/domain/view_data/i_view_repository.dart';
+import 'package:bloc_flutters/domain/view_data/view_failure.dart';
 import 'package:bloc_flutters/model/view_data/view_data.dart';
-import 'package:dartz/dartz.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'view_data_event.dart';

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:bloc_flutters/infrastructure/core/storage_token.dart';
 import 'package:bloc_flutters/presentation/core/utils.dart';
 import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +12,10 @@ class SplashScreen extends HookWidget {
     // TODO: implement build
     useEffect(() {
       Timer(Duration(seconds: 3), () async {
-        var cek = true;
-        if (cek == true) {
+        var cek = await storageData.readToken();
+        print("Nilai Cek");
+        print(cek);
+        if (cek == false) {
           Get.offNamed(Routers.login);
         } else {
           Get.offNamed(Routers.mainpage);

@@ -8,7 +8,7 @@ class LoginState with _$LoginState {
     required bool showErrorMessage,
     required bool isLoading,
     required bool isSubmitting,
-    required Option<Either<ValueFailure, LoginModel>>
+    required Option<Either<LoginFailure, LoginModel>>
         authFailureOrSuccessOption,
   }) = _LoginState;
 

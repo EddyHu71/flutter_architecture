@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 class Components {
   static RawMaterialButton button({
     required String text,
-    required VoidCallback onPressed,
+    required Function() onPressed,
   }) =>
       RawMaterialButton(
           fillColor: Colours.buttonColor,
@@ -19,7 +19,7 @@ class Components {
             child: Row(
               // mainAxisSize: MainAxisSize.min,
               children: [
-                Expanded(
+                const Expanded(
                   child: SizedBox(),
                 ),
                 Icon(Icons.login, size: 28, color: Colours.componentColor),
@@ -30,7 +30,7 @@ class Components {
                         fontWeight: FontWeight.bold,
                         color: Colours.componentColor,
                         fontSize: 16)),
-                Expanded(
+                const Expanded(
                   child: SizedBox(),
                 ),
               ],

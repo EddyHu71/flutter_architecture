@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:bloc_flutters/domain/core/failures.dart';
 import 'package:bloc_flutters/domain/login/i_login_repository.dart';
+import 'package:bloc_flutters/domain/login/login_failure.dart';
 import 'package:bloc_flutters/domain/login/login_objects.dart';
 import 'package:bloc_flutters/model/response/login_model.dart';
-import 'package:dartz/dartz.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -33,7 +33,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   Stream<LoginState> _signIn() async* {
-    Either<ValueFailure, LoginModel>? failOrSuccess;
+    Either<LoginFailure, LoginModel>? failOrSuccess;
     final isEmailValid = state.email.isValid();
     final isPasswordValid = state.password.isValid();
 

@@ -1,7 +1,7 @@
-import 'package:bloc_flutters/domain/core/failures.dart';
+import 'package:bloc_flutters/domain/login/login_failure.dart';
 import 'package:bloc_flutters/model/response/login_model.dart';
-import 'package:dartz/dartz.dart' hide IList;
+import 'package:fpdart/fpdart.dart';
 
 abstract class ILoginRepository {
-  Future<Either<ValueFailure, LoginModel>> login(String email, String password);
+  Future<Either<LoginFailure, LoginModel>> login(String email, String password);
 }

@@ -8,7 +8,6 @@ import 'package:bloc_flutters/domain/core/i_storage.dart';
 import 'package:bloc_flutters/infrastructure/core/link_connect.dart';
 import 'package:bloc_flutters/infrastructure/core/logger_interceptor.dart';
 import 'package:bloc_flutters/infrastructure/core/model/token/auth_token.dart';
-import 'package:fresh_dio/fresh_dio.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
@@ -28,23 +27,23 @@ abstract class RegisterModule {
   @lazySingleton
   Logger get logger => Logger();
 
-  @lazySingleton
-  Fresh get fresh => Fresh<AuthToken>(
-        tokenHeader: (token) {
-          return {'Authorization': '${token.tokenType} ${token.accessToken}'};
-        },
-        tokenStorage: InMemoryTokenStorage<AuthToken>(),
-        refreshToken: (token, client) async {
-          throw RevokeTokenException();
-        },
-      );
+  // @lazySingleton
+  // Fresh get fresh => Fresh<AuthToken>(
+  //       tokenHeader: (token) {
+  //         return {'Authorization': '${token.tokenType} ${token.accessToken}'};
+  //       },
+  //       tokenStorage: InMemoryTokenStorage<AuthToken>(),
+  //       refreshToken: (token, client) async {
+  //         throw RevokeTokenException();
+  //       },
+  //     );
 
   // @preResolve
   @lazySingleton
   Dio dio(
     @Named('baseUrl') String baseUrl,
     IStorage _storage,
-    Fresh _fresh,
+    // Fresh _fresh,
   ) {
     final Dio _dio = Dio();
     final BaseOptions _options = BaseOptions(
@@ -65,7 +64,7 @@ abstract class RegisterModule {
     // await _storage.openBox(StorageConstants.security);
     // _dio.interceptors.add(AuthInterceptor(_storage, 'sessionId'));
 
-    _dio.interceptors.add(_fresh);
+    // _dio.interceptors.add(_fresh);
     _dio.interceptors.add(
       LoggerInterceptor(
         requestHeader: true,

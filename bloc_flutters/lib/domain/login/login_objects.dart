@@ -1,7 +1,7 @@
 import 'package:bloc_flutters/domain/core/failures.dart';
 import 'package:bloc_flutters/domain/core/value_objects.dart';
 import 'package:bloc_flutters/domain/core/value_validators.dart';
-import 'package:dartz/dartz.dart';
+import 'package:fpdart/fpdart.dart';
 
 class Email extends ValueObject<String> {
   @override

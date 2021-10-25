@@ -497,7 +497,7 @@ class _$LoginStateTearOff {
       required bool showErrorMessage,
       required bool isLoading,
       required bool isSubmitting,
-      required Option<Either<ValueFailure, LoginModel>>
+      required Option<Either<LoginFailure, LoginModel>>
           authFailureOrSuccessOption}) {
     return _LoginState(
       email: email,
@@ -520,7 +520,7 @@ mixin _$LoginState {
   bool get showErrorMessage => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
-  Option<Either<ValueFailure, LoginModel>> get authFailureOrSuccessOption =>
+  Option<Either<LoginFailure, LoginModel>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -539,7 +539,7 @@ abstract class $LoginStateCopyWith<$Res> {
       bool showErrorMessage,
       bool isLoading,
       bool isSubmitting,
-      Option<Either<ValueFailure, LoginModel>> authFailureOrSuccessOption});
+      Option<Either<LoginFailure, LoginModel>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -583,7 +583,7 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<ValueFailure, LoginModel>>,
+              as Option<Either<LoginFailure, LoginModel>>,
     ));
   }
 }
@@ -600,7 +600,7 @@ abstract class _$LoginStateCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
       bool showErrorMessage,
       bool isLoading,
       bool isSubmitting,
-      Option<Either<ValueFailure, LoginModel>> authFailureOrSuccessOption});
+      Option<Either<LoginFailure, LoginModel>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -646,7 +646,7 @@ class __$LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<ValueFailure, LoginModel>>,
+              as Option<Either<LoginFailure, LoginModel>>,
     ));
   }
 }
@@ -673,7 +673,7 @@ class _$_LoginState implements _LoginState {
   @override
   final bool isSubmitting;
   @override
-  final Option<Either<ValueFailure, LoginModel>> authFailureOrSuccessOption;
+  final Option<Either<LoginFailure, LoginModel>> authFailureOrSuccessOption;
 
   @override
   String toString() {
@@ -717,7 +717,7 @@ abstract class _LoginState implements LoginState {
       required bool showErrorMessage,
       required bool isLoading,
       required bool isSubmitting,
-      required Option<Either<ValueFailure, LoginModel>>
+      required Option<Either<LoginFailure, LoginModel>>
           authFailureOrSuccessOption}) = _$_LoginState;
 
   @override
@@ -731,7 +731,7 @@ abstract class _LoginState implements LoginState {
   @override
   bool get isSubmitting;
   @override
-  Option<Either<ValueFailure, LoginModel>> get authFailureOrSuccessOption;
+  Option<Either<LoginFailure, LoginModel>> get authFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$LoginStateCopyWith<_LoginState> get copyWith =>
