@@ -4,8 +4,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 class HomePage extends HookWidget {
   final _pages = [
-    ViewData(),
+    ViewDataPage(),
     Center(child: Text("Profile")),
+    
     // Center(child : Text("ABC"))
   ];
   @override
@@ -20,11 +21,11 @@ class HomePage extends HookWidget {
       body: _pages[_selectedIndex.value],
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
           ),

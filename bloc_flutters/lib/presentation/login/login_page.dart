@@ -3,6 +3,7 @@ import 'package:bloc_flutters/injection.dart';
 import 'package:bloc_flutters/presentation/core/alerts.dart';
 import 'package:bloc_flutters/presentation/core/components.dart';
 import 'package:bloc_flutters/presentation/core/utils.dart';
+import 'package:bloc_flutters/presentation/home/home_page.dart';
 import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,38 +19,26 @@ class LoginPage extends StatelessWidget {
         create: (context) => getIt<LoginBloc>(),
         child: BlocConsumer<LoginBloc, LoginState>(
             listener: (BuildContext context, LoginState state) {
-          // state.authFailureOrSuccessOption.fold(
-          //     () => null,
-          //     (a) => a.fold(
-          //         (l) => l.maybeMap(
-          //             orElse: () => null,
-          //             invalidLogin: (_) => {
-          //                   Alerts.logoutAlert(
-          //                       title: "Login Failed",
-          //                       subTitle: "Your login is invalid",
-          //                       withCancel: false,
-          //                       onPressed: () {
-          //                         Get.back();
-          //                       },
-          //                       onCancelPressed: () {},
-          //                       context: context)
-          //                 }),
-          //         (r) => Get.offNamed(Routers.mainpage)));
           state.authFailureOrSuccessOption.match(
               (t) => t.fold(
-                  (l) => l.maybeMap(
+                    (l) => l.maybeMap(
                       orElse: () => null,
                       invalidLogin: (_) => {
-                            Alerts.logoutAlert(
-                                title: "Login failed",
-                                subTitle: "Your login is invalid",
-                                onPressed: () {
-                                  Get.back();
-                                },
-                                onCancelPressed: () {},
-                                context: context)
-                          }),
-                  (r) => Get.offNamed(Routers.mainpage)),
+                        Alerts.logoutAlert(
+                            title: "Login failed",
+                            subTitle: "Your login is invalid",
+                            onPressed: () {
+                              Get.back();
+                            },
+                            onCancelPressed: () {},
+                            context: context)
+                      },
+                    ),
+                    (r) {
+                      print('right');
+                      Get.offNamed(Routers.mainpage);
+                    },
+                  ),
               () => null);
         }, builder: (BuildContext context, LoginState state) {
           return Scaffold(
@@ -93,11 +82,10 @@ class LoginPage extends StatelessWidget {
                                   border: InputBorder.none,
                                   prefixIcon: const Icon(Icons.lock),
                                   suffixIcon: IconButton(
-                                    icon : const Icon(Icons.remove_red_eye), 
-                                    onPressed : () async {
-                                      hidden = !hidden;
-                                  } )
-                                  ),
+                                      icon: const Icon(Icons.remove_red_eye),
+                                      onPressed: () async {
+                                        hidden = !hidden;
+                                      })),
                               obscureText: hidden,
                               onChanged: (value) => context
                                   .read<LoginBloc>()
@@ -112,8 +100,8 @@ class LoginPage extends StatelessWidget {
                             ),
                             const Expanded(flex: 1, child: SizedBox()),
                             Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
+                              padding: const EdgeInsets.fromLTRB(
+                                  14.0, 8.0, 14.0, 8.0),
                               child: Components.button(
                                   text: "Login",
                                   onPressed: () {

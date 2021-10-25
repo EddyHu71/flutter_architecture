@@ -27,11 +27,13 @@ class LoginRepository implements ILoginRepository {
           await networkService.postHttp(path: UrlPath.login, content: request);
       print("Repo Login executed");
       print(res);
-      if (res.token != null) {
-        storageData.writeToken(res.token);
-        storageData.readToken();
+      if (res != null) {
+        Map<String, dynamic> json = res as Map<String,dynamic>;
+        // storage
+        storageData.writeToken(json['token']);
+        print(storageData.readToken());
         print("Login success");
-        return right(LoginModel.fromJson(res));
+        return right(LoginModel.fromJson(json));
       }
       return left(LoginFailure.invalidLogin());
     } catch (e) {

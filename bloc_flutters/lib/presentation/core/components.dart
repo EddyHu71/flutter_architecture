@@ -38,9 +38,9 @@ class Components {
           ));
 
   static Card listData(
-          {required String? name,
+          {required String name,
           required VoidCallback? onPressed,
-          required String? year}) =>
+          required String year}) =>
       Card(
           elevation: 2,
           shape:
@@ -48,16 +48,18 @@ class Components {
           clipBehavior: Clip.antiAlias,
           child: InkWell(
             onTap: onPressed,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(name ?? '',
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 16)),
-                Text(year ?? '')
-              ],
+            child: Container(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(name,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold)),
+                  Text(year)
+                ],
+              ),
             ),
           ));
 }
