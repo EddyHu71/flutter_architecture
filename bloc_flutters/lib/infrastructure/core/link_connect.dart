@@ -6,7 +6,7 @@ class Urls {
 
 class UrlPath {
   static const String login = 'api/login';
-
+  static const String register = "api/register";
   static const String getData = "api/unknown";
   // static const String getToken = '/auth/otp';
   // static const String getTokenEmail = '/auth/otp-email';
