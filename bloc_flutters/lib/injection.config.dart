@@ -11,7 +11,7 @@ import 'package:hive_flutter/hive_flutter.dart' as _i4;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:logger/logger.dart' as _i7;
 
-import 'application/login/login_bloc.dart' as _i21;
+import 'application/login/login_controller.dart' as _i21;
 import 'application/register/register_bloc.dart' as _i17;
 import 'application/view_data/view_data_bloc.dart' as _i18;
 import 'domain/core/i_network_service.dart' as _i11;
@@ -58,8 +58,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i18.ViewDataBloc(get<_i15.IViewRepository>()));
   gh.lazySingleton<_i19.ILoginRepository>(
       () => _i20.LoginRepository(get<_i11.INetworkService>()));
-  gh.factory<_i21.LoginBloc>(
-      () => _i21.LoginBloc(get<_i19.ILoginRepository>()));
+  gh.factory<_i21.LoginController>(
+      () => _i21.LoginController(get<_i19.ILoginRepository>()));
   return get;
 }
 

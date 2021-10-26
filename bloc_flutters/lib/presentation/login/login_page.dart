@@ -1,5 +1,5 @@
-import 'package:bloc_flutters/application/login/login_bloc.dart';
-import 'package:bloc_flutters/domain/register/register_objects.dart';
+import 'package:bloc_flutters/application/login/login_controller.dart';
+import 'package:bloc_flutters/domain/login/login_objects.dart';
 import 'package:bloc_flutters/injection.dart';
 import 'package:bloc_flutters/presentation/core/alerts.dart';
 import 'package:bloc_flutters/presentation/core/components.dart';
@@ -13,41 +13,12 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
+  final LoginController loginController = Get.put(getIt<LoginController>());
   @override
   Widget build(BuildContext context) {
     var hidden = true;
     // TODO: implement build
-    return BlocProvider<LoginBloc>(
-        create: (context) => getIt<LoginBloc>(),
-        child: BlocConsumer<LoginBloc, LoginState>(
-            listener: (BuildContext context, LoginState state) {
-          state.authFailureOrSuccessOption.match(
-              (t) => t.fold(
-                    (l) => l.maybeMap(
-                      orElse: () => null,
-                      invalidLogin: (_) => {
-                        Alerts.logoutAlert(
-                            title: "Login failed",
-                            subTitle: "Your login is invalid",
-                            onPressed: () {
-                              Get.back();
-                            },
-                            onCancelPressed: () {},
-                            context: context)
-                      },
-                    ),
-                    (r) {
-                      print('right');
-                      print(state.email.value.toString());
-                      Get.to(PassLoginPage(
-                        email : Email(state.email.value.toString()),
-                      ));
-                      //Get.toNamed(Routers.mainpage);
-                    },
-                  ),
-              () => null);
-        }, builder: (BuildContext context, LoginState state) {
           return Scaffold(
               body: SafeArea(
                   child: Padding(
@@ -69,16 +40,25 @@ class LoginPage extends StatelessWidget {
                                     hintText: "Email",
                                     border: InputBorder.none,
                                     prefixIcon: Icon(Icons.person)),
-                                onChanged: (value) => context
-                                    .read<LoginBloc>()
-                                    .add(LoginEvent.onEmailChanged(value)),
-                                validator: (_) => state.email.value.fold(
-                                    (l) => l.maybeMap(
-                                        empty: (_) => "Email anda kosong",
-                                        invalidEmail: (_) =>
-                                            "Email anda tidak valid",
-                                        orElse: () => null),
-                                    (r) => null)),
+                                onChanged: (value) => loginController.onEmailChanged(value),
+                                validator: (_) => loginController.getEmail.value.fold(
+                                  (l) => l.maybeMap(
+                                    empty: (_) => "Email Anda kosong",
+                                    invalidEmail: (_) => "Email Anda tidak valid",
+                                    orElse: () => null), 
+                                    (r) => null
+                                    ),
+                                // onChanged: (value) => context
+                                //     .read<LoginBloc>()
+                                //     .add(LoginEvent.onEmailChanged(value)),
+                                // validator: (_) => state.email.value.fold(
+                                //     (l) => l.maybeMap(
+                                //         empty: (_) => "Email anda kosong",
+                                //         invalidEmail: (_) =>
+                                //             "Email anda tidak valid",
+                                //         orElse: () => null),
+                                //     (r) => null)),
+                            ),
                             const Expanded(flex: 1, child: SizedBox()),
                             Padding(
                               padding: const EdgeInsets.fromLTRB(
@@ -86,9 +66,10 @@ class LoginPage extends StatelessWidget {
                               child: Components.button(
                                   text: "Login",
                                   onPressed: () {
+                                    if (loginController.isEmailValid.value == true) {
+                                      Get.to(PassLoginPage(email: Email(loginController.email.value.getOrCrash())));
+                                    }
                                     print("State Email");
-                                    print(state.email.value.toString());
-                                    context.read<LoginBloc>().add(LoginEvent.validatedEmail(state.email.value.toString()));
                                     // Get.to(PassLoginPage());
                                     // context
                                     //     .read<LoginBloc>()
@@ -112,6 +93,5 @@ class LoginPage extends StatelessWidget {
                           ],
                         ),
                       ))));
-        }));
   }
 }
