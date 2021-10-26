@@ -1,3 +1,5 @@
+
+
 import 'package:bloc_flutters/domain/core/failures.dart';
 import 'package:bloc_flutters/domain/core/value_objects.dart';
 import 'package:bloc_flutters/domain/core/value_validators.dart';
@@ -10,7 +12,9 @@ class Email extends ValueObject<String> {
 
   factory Email(String input) {
     assert(input != null);
-    return Email._(validateEmail(input));
+    return Email._(
+      validateEmail(input)
+    );
   }
 
   const Email._(this.value);
@@ -18,15 +22,15 @@ class Email extends ValueObject<String> {
 
 class Password extends ValueObject<String> {
   @override
-  // TODO: implement value
   final Either<ValueFailure<String>, String> value;
 
   factory Password(String input) {
-    assert(input != null);
+    assert (input != null);
     return Password._(
       validatePassword(input),
     );
   }
 
   const Password._(this.value);
+
 }

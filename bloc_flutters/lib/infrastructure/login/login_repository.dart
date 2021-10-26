@@ -12,7 +12,6 @@ import 'package:injectable/injectable.dart';
 class LoginRepository implements ILoginRepository {
   final INetworkService networkService;
   LoginRepository(this.networkService);
-
   @override
   Future<Either<LoginFailure, LoginModel>> login(
       String email, String password) async {
