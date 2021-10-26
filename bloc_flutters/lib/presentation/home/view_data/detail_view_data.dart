@@ -22,10 +22,10 @@ class DetailViewData extends HookWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Text(datum.name!,
+                Text(datum.name,
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 24)),
-                Text(datum.year!.toString(),
+                Text(datum.year.toString(),
                     style: const TextStyle(fontSize: 18)),
               ],
             ),
