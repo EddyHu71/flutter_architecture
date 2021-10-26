@@ -17,6 +17,12 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$LoginEventTearOff {
   const _$LoginEventTearOff();
 
+  _ValidatedEmail validatedEmail(String email) {
+    return _ValidatedEmail(
+      email,
+    );
+  }
+
   _SignIn signIn() {
     return const _SignIn();
   }
@@ -41,6 +47,7 @@ const $LoginEvent = _$LoginEventTearOff();
 mixin _$LoginEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String email) validatedEmail,
     required TResult Function() signIn,
     required TResult Function(String email) onEmailChanged,
     required TResult Function(String password) onPasswordChanged,
@@ -48,6 +55,7 @@ mixin _$LoginEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String email)? validatedEmail,
     TResult Function()? signIn,
     TResult Function(String email)? onEmailChanged,
     TResult Function(String password)? onPasswordChanged,
@@ -55,6 +63,7 @@ mixin _$LoginEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email)? validatedEmail,
     TResult Function()? signIn,
     TResult Function(String email)? onEmailChanged,
     TResult Function(String password)? onPasswordChanged,
@@ -63,6 +72,7 @@ mixin _$LoginEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ValidatedEmail value) validatedEmail,
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_EmailChanged value) onEmailChanged,
     required TResult Function(_PasswordChanged value) onPasswordChanged,
@@ -70,6 +80,7 @@ mixin _$LoginEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ValidatedEmail value)? validatedEmail,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_EmailChanged value)? onEmailChanged,
     TResult Function(_PasswordChanged value)? onPasswordChanged,
@@ -77,6 +88,7 @@ mixin _$LoginEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ValidatedEmail value)? validatedEmail,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_EmailChanged value)? onEmailChanged,
     TResult Function(_PasswordChanged value)? onPasswordChanged,
@@ -99,6 +111,150 @@ class _$LoginEventCopyWithImpl<$Res> implements $LoginEventCopyWith<$Res> {
   final LoginEvent _value;
   // ignore: unused_field
   final $Res Function(LoginEvent) _then;
+}
+
+/// @nodoc
+abstract class _$ValidatedEmailCopyWith<$Res> {
+  factory _$ValidatedEmailCopyWith(
+          _ValidatedEmail value, $Res Function(_ValidatedEmail) then) =
+      __$ValidatedEmailCopyWithImpl<$Res>;
+  $Res call({String email});
+}
+
+/// @nodoc
+class __$ValidatedEmailCopyWithImpl<$Res> extends _$LoginEventCopyWithImpl<$Res>
+    implements _$ValidatedEmailCopyWith<$Res> {
+  __$ValidatedEmailCopyWithImpl(
+      _ValidatedEmail _value, $Res Function(_ValidatedEmail) _then)
+      : super(_value, (v) => _then(v as _ValidatedEmail));
+
+  @override
+  _ValidatedEmail get _value => super._value as _ValidatedEmail;
+
+  @override
+  $Res call({
+    Object? email = freezed,
+  }) {
+    return _then(_ValidatedEmail(
+      email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ValidatedEmail implements _ValidatedEmail {
+  const _$_ValidatedEmail(this.email);
+
+  @override
+  final String email;
+
+  @override
+  String toString() {
+    return 'LoginEvent.validatedEmail(email: $email)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ValidatedEmail &&
+            (identical(other.email, email) || other.email == email));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ValidatedEmailCopyWith<_ValidatedEmail> get copyWith =>
+      __$ValidatedEmailCopyWithImpl<_ValidatedEmail>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email) validatedEmail,
+    required TResult Function() signIn,
+    required TResult Function(String email) onEmailChanged,
+    required TResult Function(String password) onPasswordChanged,
+  }) {
+    return validatedEmail(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String email)? validatedEmail,
+    TResult Function()? signIn,
+    TResult Function(String email)? onEmailChanged,
+    TResult Function(String password)? onPasswordChanged,
+  }) {
+    return validatedEmail?.call(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email)? validatedEmail,
+    TResult Function()? signIn,
+    TResult Function(String email)? onEmailChanged,
+    TResult Function(String password)? onPasswordChanged,
+    required TResult orElse(),
+  }) {
+    if (validatedEmail != null) {
+      return validatedEmail(email);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ValidatedEmail value) validatedEmail,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_EmailChanged value) onEmailChanged,
+    required TResult Function(_PasswordChanged value) onPasswordChanged,
+  }) {
+    return validatedEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ValidatedEmail value)? validatedEmail,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_EmailChanged value)? onEmailChanged,
+    TResult Function(_PasswordChanged value)? onPasswordChanged,
+  }) {
+    return validatedEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ValidatedEmail value)? validatedEmail,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_EmailChanged value)? onEmailChanged,
+    TResult Function(_PasswordChanged value)? onPasswordChanged,
+    required TResult orElse(),
+  }) {
+    if (validatedEmail != null) {
+      return validatedEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ValidatedEmail implements LoginEvent {
+  const factory _ValidatedEmail(String email) = _$_ValidatedEmail;
+
+  String get email;
+  @JsonKey(ignore: true)
+  _$ValidatedEmailCopyWith<_ValidatedEmail> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -139,6 +295,7 @@ class _$_SignIn implements _SignIn {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String email) validatedEmail,
     required TResult Function() signIn,
     required TResult Function(String email) onEmailChanged,
     required TResult Function(String password) onPasswordChanged,
@@ -149,6 +306,7 @@ class _$_SignIn implements _SignIn {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String email)? validatedEmail,
     TResult Function()? signIn,
     TResult Function(String email)? onEmailChanged,
     TResult Function(String password)? onPasswordChanged,
@@ -159,6 +317,7 @@ class _$_SignIn implements _SignIn {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email)? validatedEmail,
     TResult Function()? signIn,
     TResult Function(String email)? onEmailChanged,
     TResult Function(String password)? onPasswordChanged,
@@ -173,6 +332,7 @@ class _$_SignIn implements _SignIn {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ValidatedEmail value) validatedEmail,
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_EmailChanged value) onEmailChanged,
     required TResult Function(_PasswordChanged value) onPasswordChanged,
@@ -183,6 +343,7 @@ class _$_SignIn implements _SignIn {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ValidatedEmail value)? validatedEmail,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_EmailChanged value)? onEmailChanged,
     TResult Function(_PasswordChanged value)? onPasswordChanged,
@@ -193,6 +354,7 @@ class _$_SignIn implements _SignIn {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ValidatedEmail value)? validatedEmail,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_EmailChanged value)? onEmailChanged,
     TResult Function(_PasswordChanged value)? onPasswordChanged,
@@ -272,6 +434,7 @@ class _$_EmailChanged implements _EmailChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String email) validatedEmail,
     required TResult Function() signIn,
     required TResult Function(String email) onEmailChanged,
     required TResult Function(String password) onPasswordChanged,
@@ -282,6 +445,7 @@ class _$_EmailChanged implements _EmailChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String email)? validatedEmail,
     TResult Function()? signIn,
     TResult Function(String email)? onEmailChanged,
     TResult Function(String password)? onPasswordChanged,
@@ -292,6 +456,7 @@ class _$_EmailChanged implements _EmailChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email)? validatedEmail,
     TResult Function()? signIn,
     TResult Function(String email)? onEmailChanged,
     TResult Function(String password)? onPasswordChanged,
@@ -306,6 +471,7 @@ class _$_EmailChanged implements _EmailChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ValidatedEmail value) validatedEmail,
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_EmailChanged value) onEmailChanged,
     required TResult Function(_PasswordChanged value) onPasswordChanged,
@@ -316,6 +482,7 @@ class _$_EmailChanged implements _EmailChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ValidatedEmail value)? validatedEmail,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_EmailChanged value)? onEmailChanged,
     TResult Function(_PasswordChanged value)? onPasswordChanged,
@@ -326,6 +493,7 @@ class _$_EmailChanged implements _EmailChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ValidatedEmail value)? validatedEmail,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_EmailChanged value)? onEmailChanged,
     TResult Function(_PasswordChanged value)? onPasswordChanged,
@@ -412,6 +580,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String email) validatedEmail,
     required TResult Function() signIn,
     required TResult Function(String email) onEmailChanged,
     required TResult Function(String password) onPasswordChanged,
@@ -422,6 +591,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String email)? validatedEmail,
     TResult Function()? signIn,
     TResult Function(String email)? onEmailChanged,
     TResult Function(String password)? onPasswordChanged,
@@ -432,6 +602,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email)? validatedEmail,
     TResult Function()? signIn,
     TResult Function(String email)? onEmailChanged,
     TResult Function(String password)? onPasswordChanged,
@@ -446,6 +617,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ValidatedEmail value) validatedEmail,
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_EmailChanged value) onEmailChanged,
     required TResult Function(_PasswordChanged value) onPasswordChanged,
@@ -456,6 +628,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ValidatedEmail value)? validatedEmail,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_EmailChanged value)? onEmailChanged,
     TResult Function(_PasswordChanged value)? onPasswordChanged,
@@ -466,6 +639,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ValidatedEmail value)? validatedEmail,
     TResult Function(_SignIn value)? signIn,
     TResult Function(_EmailChanged value)? onEmailChanged,
     TResult Function(_PasswordChanged value)? onPasswordChanged,

@@ -1,9 +1,11 @@
 import 'package:bloc_flutters/application/login/login_bloc.dart';
+import 'package:bloc_flutters/domain/register/register_objects.dart';
 import 'package:bloc_flutters/injection.dart';
 import 'package:bloc_flutters/presentation/core/alerts.dart';
 import 'package:bloc_flutters/presentation/core/components.dart';
 import 'package:bloc_flutters/presentation/core/utils.dart';
 import 'package:bloc_flutters/presentation/home/home_page.dart';
+import 'package:bloc_flutters/presentation/login/pass_login_page.dart';
 import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +39,11 @@ class LoginPage extends StatelessWidget {
                     ),
                     (r) {
                       print('right');
-                      Get.offNamed(Routers.mainpage);
+                      print(state.email.value.toString());
+                      Get.to(PassLoginPage(
+                        email : Email(state.email.value.toString()),
+                      ));
+                      //Get.toNamed(Routers.mainpage);
                     },
                   ),
               () => null);
@@ -73,34 +79,6 @@ class LoginPage extends StatelessWidget {
                                             "Email anda tidak valid",
                                         orElse: () => null),
                                     (r) => null)),
-                            TextFormField(
-                              keyboardType: TextInputType.text,
-                              autovalidateMode:
-                                  AutovalidateMode.onUserInteraction,
-                              decoration: InputDecoration(
-                                  fillColor: Colors.grey.withOpacity(0.4),
-                                  hintText: "Password",
-                                  border: InputBorder.none,
-                                  prefixIcon: const Icon(Icons.lock),
-                                  suffixIcon: IconButton(
-                                      icon: const Icon(Icons.remove_red_eye),
-                                      onPressed: () async {
-                                        useState(() {
-                                          hidden = !hidden;
-                                        });
-                                      })),
-                              obscureText: hidden,
-                              onChanged: (value) => context
-                                  .read<LoginBloc>()
-                                  .add(LoginEvent.onPasswordChanged(value)),
-                              validator: (_) => state.email.value.fold(
-                                  (l) => l.maybeMap(
-                                      empty: (_) => "Password anda kosong",
-                                      invalidPassword: (_) =>
-                                          "Password anda tidak valid",
-                                      orElse: () => null),
-                                  (r) => null),
-                            ),
                             const Expanded(flex: 1, child: SizedBox()),
                             Padding(
                               padding: const EdgeInsets.fromLTRB(
@@ -108,10 +86,14 @@ class LoginPage extends StatelessWidget {
                               child: Components.button(
                                   text: "Login",
                                   onPressed: () {
-                                    context
-                                        .read<LoginBloc>()
-                                        .add(const LoginEvent.signIn());
-                                    print("Login");
+                                    print("State Email");
+                                    print(state.email.value.toString());
+                                    context.read<LoginBloc>().add(LoginEvent.validatedEmail(state.email.value.toString()));
+                                    // Get.to(PassLoginPage());
+                                    // context
+                                    //     .read<LoginBloc>()
+                                    //     .add(const LoginEvent.signIn());
+                                    debugPrint("Login");
                                     // Get.off(HomePage());
                                   }),
                             ),

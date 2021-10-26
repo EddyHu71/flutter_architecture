@@ -19,7 +19,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     // ignore: void_checks
     on<LoginEvent>((event, emit) async {
       // TODO: implement event handler
-      await event.map(signIn: (e) async {
+      await event.map(
+        validatedEmail: (e) async {
+          
+        },
+        signIn: (e) async {
         print('sigIN');
         Either<LoginFailure, LoginModel>? failOrSuccess;
         final isEmailValid = state.email.isValid();
