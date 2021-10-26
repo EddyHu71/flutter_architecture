@@ -6,7 +6,7 @@ class HomePage extends HookWidget {
   final _pages = [
     ViewDataPage(),
     Center(child: Text("Profile")),
-    
+
     // Center(child : Text("ABC"))
   ];
   @override

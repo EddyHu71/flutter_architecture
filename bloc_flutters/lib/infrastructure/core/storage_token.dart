@@ -18,6 +18,7 @@ class StorageToken {
       return false;
     }
   }
+
   deleteAll() async {
     print("Delete All");
     await _storage.deleteAll();

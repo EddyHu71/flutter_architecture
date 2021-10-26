@@ -143,14 +143,21 @@ class ViewDataPage extends HookWidget {
                                 print("Detail data");
                                 print(listData.data[1].name);
                                 return ListView.separated(
-                                  separatorBuilder: (BuildContext context, int index) {
-                                    return  const SizedBox(height : 8);
+                                  separatorBuilder:
+                                      (BuildContext context, int index) {
+                                    return const SizedBox(height: 8);
                                   },
                                   itemCount: 6,
                                   shrinkWrap: true,
                                   itemBuilder:
                                       (BuildContext context, int index) {
-                                    return const Card(child: SizedBox( height: 20, child: Text("Test")),);
+                                        print(listData.data[index].name);
+                                    return const Card(
+                                      child: SizedBox(
+                                          height: 20, child: Text(
+                                            'Teks')
+                                          ),
+                                    );
                                   },
                                 );
                               },
