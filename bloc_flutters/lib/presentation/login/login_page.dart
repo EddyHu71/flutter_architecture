@@ -7,6 +7,7 @@ import 'package:bloc_flutters/presentation/home/home_page.dart';
 import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
@@ -84,7 +85,9 @@ class LoginPage extends StatelessWidget {
                                   suffixIcon: IconButton(
                                       icon: const Icon(Icons.remove_red_eye),
                                       onPressed: () async {
-                                        hidden = !hidden;
+                                        useState(() {
+                                          hidden = !hidden;
+                                        });
                                       })),
                               obscureText: hidden,
                               onChanged: (value) => context
@@ -109,6 +112,17 @@ class LoginPage extends StatelessWidget {
                                         .read<LoginBloc>()
                                         .add(const LoginEvent.signIn());
                                     print("Login");
+                                    // Get.off(HomePage());
+                                  }),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(
+                                  14.0, 8.0, 14.0, 8.0),
+                              child: Components.button(
+                                  text: "Register",
+                                  onPressed: () {
+                                    Get.toNamed(Routers.registerpage);
+                                    print("Register");
                                     // Get.off(HomePage());
                                   }),
                             ),
