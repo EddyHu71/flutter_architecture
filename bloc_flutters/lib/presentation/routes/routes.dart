@@ -23,7 +23,7 @@ class Routers {
     GetPage(name: Routers.mainpage, page: () => HomePage()),
     GetPage(
       name: Routers.login,
-      page: () => const LoginPage(),
+      page: () => LoginPage(),
     ),
     GetPage(name: Routers.viewData, page: () => ViewDataPage()),
     GetPage(name: Routers.splashScreen, page: () => SplashScreen()),

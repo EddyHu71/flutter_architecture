@@ -7,7 +7,6 @@ import 'package:bloc_flutters/domain/core/i_storage.dart';
 
 import 'package:bloc_flutters/infrastructure/core/link_connect.dart';
 import 'package:bloc_flutters/infrastructure/core/logger_interceptor.dart';
-import 'package:bloc_flutters/infrastructure/core/model/token/auth_token.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';

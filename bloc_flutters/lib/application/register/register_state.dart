@@ -13,11 +13,11 @@ class RegisterState with _$RegisterState {
   }) = _RegisterState;
 
   factory RegisterState.initial() => RegisterState(
-    email: Email(''), 
-    password: Password(''),
-    showErrorMessage: false,
-    isLoading: false,
-    isSubmitting: false,
-    authfailureOrSuccessOption: none(),
-    );
+        email: Email(''),
+        password: Password(''),
+        showErrorMessage: false,
+        isLoading: false,
+        isSubmitting: false,
+        authfailureOrSuccessOption: none(),
+      );
 }

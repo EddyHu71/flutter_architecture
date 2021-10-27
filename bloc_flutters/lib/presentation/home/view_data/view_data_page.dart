@@ -2,6 +2,7 @@ import 'package:bloc_flutters/application/view_data/view_data_bloc.dart';
 import 'package:bloc_flutters/injection.dart';
 import 'package:bloc_flutters/presentation/core/alerts.dart';
 import 'package:bloc_flutters/presentation/core/components.dart';
+import 'package:bloc_flutters/presentation/home/view_data/detail_view_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -151,13 +152,18 @@ class ViewDataPage extends HookWidget {
                                   shrinkWrap: true,
                                   itemBuilder:
                                       (BuildContext context, int index) {
-                                        print(listData.data[index].name);
-                                    return const Card(
-                                      child: SizedBox(
-                                          height: 20, child: Text(
-                                            'Teks')
-                                          ),
-                                    );
+                                    print(listData.data[index].name);
+                                    return InkWell(
+                                        onTap: () {
+                                          Get.to(DetailViewData(
+                                              datum: listData.data[index]));
+                                        },
+                                        child: Card(
+                                          child: SizedBox(
+                                              height: 20,
+                                              child: Text(
+                                                  listData.data[index].name)),
+                                        ));
                                   },
                                 );
                               },
