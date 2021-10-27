@@ -5,7 +5,7 @@ import 'package:fpdart/fpdart.dart';
 
 abstract class IProfileRepository {
   Future<Either<ProfileFailure, ProfileModel>> getProfileData(
-      String id, String token);
+      String id);
   Future<Either<ProfileFailure, UpdateProfile>> updateProfile(
       String name, String job);
 }

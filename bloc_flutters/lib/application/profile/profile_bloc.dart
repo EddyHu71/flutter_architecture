@@ -19,11 +19,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       // TODO: implement event handler
       await event.map(getDataProfile: (_) async {
         print("Profile Bloc executed");
-        emit(ProfileState.loading());
+        emit(const ProfileState.loading());
         Future.delayed(const Duration(seconds: 1));
-        var token = await storageData.getToken();
-        // print("Token: " + token);
-        var res = await profileRepository.getProfileData("2", token.toString());
+        var res = await profileRepository.getProfileData("2");
         emit(ProfileState.loaded(optionFailedOrSuccess: optionOf(res)));
       });
     });

@@ -49,10 +49,9 @@ class LoginController extends GetxController {
     print("onLogin");
     var res = await iLoginRepository.login(
         email.value.getOrCrash(), password.value.getOrCrash());
-    print('Value');
-    print(res);
     isLoading.value = false;
-    res.match((l) {
+    res.match(
+      (l) {
       print("Left");
       Get.defaultDialog(
         title: 'Login Failed',
@@ -62,8 +61,12 @@ class LoginController extends GetxController {
         },
       );
     }, (r) {
-      Map<String, dynamic> jsons = res as Map<String, dynamic>;
-      storageData.writeToken(jsons['token']);
+      // Map<String, dynamic> jsons = res as Map<String, dynamic>;
+      
+      print("Login controller success");
+      print(r.token);
+      storageData.writeToken(r.token??"");
+      
       Get.offNamedUntil(Routers.mainpage, (route) => false);
     });
   }

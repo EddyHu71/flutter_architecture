@@ -25,7 +25,7 @@ class LoginRepository implements ILoginRepository {
       var res =
           await networkService.postHttp(path: UrlPath.login, content: request);
       print("Repo Login executed");
-      print(res);
+      // print(res);
       if (res != null) {
         Map<String, dynamic> json = res as Map<String, dynamic>;
         // storage

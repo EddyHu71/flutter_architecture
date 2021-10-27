@@ -6,5 +6,6 @@ part 'profile_failure.freezed.dart';
 class ProfileFailure with _$ProfileFailure {
   const factory ProfileFailure.noData() = _NoData;
   const factory ProfileFailure.noInternet() = _NoInternet;
+  const factory ProfileFailure.invalidToken() = _InvalidToken;
   const factory ProfileFailure.failed() = _Failed;
 }

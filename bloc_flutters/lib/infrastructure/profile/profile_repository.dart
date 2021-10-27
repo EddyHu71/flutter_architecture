@@ -18,30 +18,30 @@ class ProfileRepository implements IProfileRepository {
 
   @override
   Future<Either<ProfileFailure, ProfileModel>> getProfileData(
-      String id, String token) async {
+      String id) async {
     // TODO: implement getProfileData
     var storedtoken = await storageData.getToken();
     print("Stored Token " + storedtoken.toString());
-    print("Current Token " + token.toString());
-    if (token.toString() == storedtoken.toString()) {
       try {
-        var res = await networkService.getHttp(
-            path: UrlPath.getProfileData + "/${id}");
-        print("Res getProfile");
-        print(res);
-        if (res != null) {
-          print("Right Getprofile");
-          return right(ProfileModel.fromJson(res));
+        if (storedtoken != null) {
+            var res = await networkService.getHttp(
+              path: UrlPath.getProfileData + "/${id}");
+          print("Res getProfile");
+          print(res);
+          if (res != null) {
+            print("Right Getprofile");
+            return right(ProfileModel.fromJson(res));
+          }
+          print("Left getProfile");
+          return left(ProfileFailure.failed());
+          } else {
+            // Get.offNamedUntil(Routers.login, (route) => false);
+            return left(ProfileFailure.invalidToken());
+          }
+        } catch (e) {
+          return left(ProfileFailure.failed());
         }
-        print("Left getProfile");
-        return left(ProfileFailure.failed());
-      } catch (e) {
-        return left(ProfileFailure.failed());
-      }
-    } else {
-      Get.offNamedUntil(Routers.login, (route) => false);
-      return left(ProfileFailure.failed());
-    }
+
   }
 
   @override
