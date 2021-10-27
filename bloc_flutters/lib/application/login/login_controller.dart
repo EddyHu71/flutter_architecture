@@ -2,6 +2,7 @@ import 'package:bloc_flutters/domain/login/i_login_repository.dart';
 import 'package:bloc_flutters/domain/login/login_objects.dart';
 import 'package:bloc_flutters/infrastructure/core/storage_token.dart';
 import 'package:bloc_flutters/infrastructure/login/login_repository.dart';
+import 'package:bloc_flutters/model/response/login_model.dart';
 import 'package:bloc_flutters/presentation/login/pass_login_page.dart';
 import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:get/get.dart';
@@ -58,7 +59,8 @@ class LoginController extends GetxController {
         },
       );
     }, (r) {
-      storageData.writeToken("");
+      Map<String, dynamic> jsons = res as Map<String, dynamic>;
+      storageData.writeToken(jsons['token']);
       Get.offNamedUntil(Routers.mainpage, (route) => false);
     });
     

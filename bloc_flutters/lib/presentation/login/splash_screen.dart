@@ -12,8 +12,8 @@ class SplashScreen extends HookWidget {
     // TODO: implement build
     useEffect(() {
       Timer(Duration(seconds: 3), () async {
-        //var cek = await storageData.readToken();
-        var cek = false;
+        var cek = await storageData.readToken();
+        // var cek = false;
         print("Nilai Cek");
         print(cek);
         if (cek == false) {
