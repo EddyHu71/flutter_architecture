@@ -19,6 +19,12 @@ class StorageToken {
     }
   }
 
+  getToken() async {
+    final token = await _storage.read(key: "token");
+    print("getToken " + token.toString());
+    return token.toString();
+  }
+
   deleteAll() async {
     print("Delete All");
     await _storage.deleteAll();

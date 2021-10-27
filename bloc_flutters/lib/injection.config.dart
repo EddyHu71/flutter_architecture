@@ -11,21 +11,24 @@ import 'package:hive_flutter/hive_flutter.dart' as _i4;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:logger/logger.dart' as _i7;
 
-import 'application/login/login_controller.dart' as _i21;
-import 'application/register/register_bloc.dart' as _i17;
-import 'application/view_data/view_data_bloc.dart' as _i18;
+import 'application/login/login_controller.dart' as _i24;
+import 'application/profile/profile_bloc.dart' as _i19;
+import 'application/register/register_bloc.dart' as _i20;
+import 'application/view_data/view_data_bloc.dart' as _i21;
 import 'domain/core/i_network_service.dart' as _i11;
 import 'domain/core/i_storage.dart' as _i5;
-import 'domain/login/i_login_repository.dart' as _i19;
-import 'domain/register/i_register_repository.dart' as _i13;
-import 'domain/view_data/i_view_repository.dart' as _i15;
+import 'domain/login/i_login_repository.dart' as _i22;
+import 'domain/profile/i_profile_repository.dart' as _i13;
+import 'domain/register/i_register_repository.dart' as _i15;
+import 'domain/view_data/i_view_repository.dart' as _i17;
 import 'infrastructure/core/auth_interceptor.dart' as _i9;
 import 'infrastructure/core/network_service.dart' as _i12;
-import 'infrastructure/core/register_module.dart' as _i22;
+import 'infrastructure/core/register_module.dart' as _i25;
 import 'infrastructure/core/storage.dart' as _i6;
-import 'infrastructure/login/login_repository.dart' as _i20;
-import 'infrastructure/register/register_repository.dart' as _i14;
-import 'infrastructure/view_data/view_data_repository.dart' as _i16;
+import 'infrastructure/login/login_repository.dart' as _i23;
+import 'infrastructure/profile/profile_repository.dart' as _i14;
+import 'infrastructure/register/register_repository.dart' as _i16;
+import 'infrastructure/view_data/view_data_repository.dart' as _i18;
 import 'simple_bloc_delegate.dart'
     as _i8; // ignore_for_file: unnecessary_lambdas
 
@@ -48,19 +51,23 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       get<String>(instanceName: 'baseUrl'), get<_i5.IStorage>()));
   gh.lazySingleton<_i11.INetworkService>(() => _i12.NetworkService(
       get<_i10.Dio>(), get<_i5.IStorage>(), get<_i3.Connectivity>()));
-  gh.lazySingleton<_i13.IRegisterRepository>(
-      () => _i14.RegisterRepository(get<_i11.INetworkService>()));
-  gh.lazySingleton<_i15.IViewRepository>(
-      () => _i16.ViewRepository(get<_i11.INetworkService>()));
-  gh.factory<_i17.RegisterBloc>(
-      () => _i17.RegisterBloc(get<_i13.IRegisterRepository>()));
-  gh.factory<_i18.ViewDataBloc>(
-      () => _i18.ViewDataBloc(get<_i15.IViewRepository>()));
-  gh.lazySingleton<_i19.ILoginRepository>(
-      () => _i20.LoginRepository(get<_i11.INetworkService>()));
-  gh.factory<_i21.LoginController>(
-      () => _i21.LoginController(get<_i19.ILoginRepository>()));
+  gh.lazySingleton<_i13.IProfileRepository>(
+      () => _i14.ProfileRepository(get<_i11.INetworkService>()));
+  gh.lazySingleton<_i15.IRegisterRepository>(
+      () => _i16.RegisterRepository(get<_i11.INetworkService>()));
+  gh.lazySingleton<_i17.IViewRepository>(
+      () => _i18.ViewRepository(get<_i11.INetworkService>()));
+  gh.factory<_i19.ProfileBloc>(
+      () => _i19.ProfileBloc(get<_i13.IProfileRepository>()));
+  gh.factory<_i20.RegisterBloc>(
+      () => _i20.RegisterBloc(get<_i15.IRegisterRepository>()));
+  gh.factory<_i21.ViewDataBloc>(
+      () => _i21.ViewDataBloc(get<_i17.IViewRepository>()));
+  gh.lazySingleton<_i22.ILoginRepository>(
+      () => _i23.LoginRepository(get<_i11.INetworkService>()));
+  gh.factory<_i24.LoginController>(
+      () => _i24.LoginController(get<_i22.ILoginRepository>()));
   return get;
 }
 
-class _$RegisterModule extends _i22.RegisterModule {}
+class _$RegisterModule extends _i25.RegisterModule {}

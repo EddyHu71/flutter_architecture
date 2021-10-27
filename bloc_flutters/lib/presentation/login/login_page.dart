@@ -19,79 +19,80 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var hidden = true;
     // TODO: implement build
-          return Scaffold(
-              body: SafeArea(
-                  child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Form(
+    return Scaffold(
+        body: SafeArea(
+            child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Form(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  child: Column(
+                    children: [
+                      const Expanded(flex: 4, child: SizedBox()),
+                      Padding(
+                          padding: EdgeInsets.only(bottom: 36),
+                          child: Image.asset(Utils.LOGO)),
+                      TextFormField(
+                        keyboardType: TextInputType.text,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
-                        child: Column(
-                          children: [
-                            const Expanded(flex: 4, child: SizedBox()),
-                            Padding(
-                                padding: EdgeInsets.only(bottom: 36),
-                                child: Image.asset(Utils.LOGO)),
-                            TextFormField(
-                                keyboardType: TextInputType.text,
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
-                                decoration: InputDecoration(
-                                    fillColor: Colors.grey.withOpacity(0.4),
-                                    hintText: "Email",
-                                    border: InputBorder.none,
-                                    prefixIcon: Icon(Icons.person)),
-                                onChanged: (value) => loginController.onEmailChanged(value),
-                                validator: (_) => loginController.getEmail.value.fold(
-                                  (l) => l.maybeMap(
-                                    empty: (_) => "Email Anda kosong",
-                                    invalidEmail: (_) => "Email Anda tidak valid",
-                                    orElse: () => null), 
-                                    (r) => null
-                                    ),
-                                // onChanged: (value) => context
-                                //     .read<LoginBloc>()
-                                //     .add(LoginEvent.onEmailChanged(value)),
-                                // validator: (_) => state.email.value.fold(
-                                //     (l) => l.maybeMap(
-                                //         empty: (_) => "Email anda kosong",
-                                //         invalidEmail: (_) =>
-                                //             "Email anda tidak valid",
-                                //         orElse: () => null),
-                                //     (r) => null)),
-                            ),
-                            const Expanded(flex: 1, child: SizedBox()),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(
-                                  14.0, 8.0, 14.0, 8.0),
-                              child: Components.button(
-                                  text: "Login",
-                                  onPressed: () {
-                                    if (loginController.isEmailValid.value == true) {
-                                      Get.to(PassLoginPage(email: Email(loginController.email.value.getOrCrash())));
-                                    }
-                                    print("State Email");
-                                    // Get.to(PassLoginPage());
-                                    // context
-                                    //     .read<LoginBloc>()
-                                    //     .add(const LoginEvent.signIn());
-                                    debugPrint("Login");
-                                    // Get.off(HomePage());
-                                  }),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(
-                                  14.0, 8.0, 14.0, 8.0),
-                              child: Components.button(
-                                  text: "Register",
-                                  onPressed: () {
-                                    Get.toNamed(Routers.registerpage);
-                                    print("Register");
-                                    // Get.off(HomePage());
-                                  }),
-                            ),
-                            const Expanded(flex: 5, child: SizedBox())
-                          ],
-                        ),
-                      ))));
+                        decoration: InputDecoration(
+                            fillColor: Colors.grey.withOpacity(0.4),
+                            hintText: "Email",
+                            border: InputBorder.none,
+                            prefixIcon: Icon(Icons.person)),
+                        onChanged: (value) =>
+                            loginController.onEmailChanged(value),
+                        validator: (_) => loginController.getEmail.value.fold(
+                            (l) => l.maybeMap(
+                                empty: (_) => "Email Anda kosong",
+                                invalidEmail: (_) => "Email Anda tidak valid",
+                                orElse: () => null),
+                            (r) => null),
+                        // onChanged: (value) => context
+                        //     .read<LoginBloc>()
+                        //     .add(LoginEvent.onEmailChanged(value)),
+                        // validator: (_) => state.email.value.fold(
+                        //     (l) => l.maybeMap(
+                        //         empty: (_) => "Email anda kosong",
+                        //         invalidEmail: (_) =>
+                        //             "Email anda tidak valid",
+                        //         orElse: () => null),
+                        //     (r) => null)),
+                      ),
+                      const Expanded(flex: 1, child: SizedBox()),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
+                        child: Components.button(
+                            text: "Login",
+                            onPressed: () {
+                              if (loginController.isEmailValid.value == true) {
+                                Get.to(PassLoginPage(
+                                    email: Email(loginController.email.value
+                                        .getOrCrash())));
+                              }
+                              print("State Email");
+                              // Get.to(PassLoginPage());
+                              // context
+                              //     .read<LoginBloc>()
+                              //     .add(const LoginEvent.signIn());
+                              debugPrint("Login");
+                              // Get.off(HomePage());
+                            }),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
+                        child: Components.button(
+                            text: "Register",
+                            onPressed: () {
+                              Get.toNamed(Routers.registerpage);
+                              print("Register");
+                              // Get.off(HomePage());
+                            }),
+                      ),
+                      const Expanded(flex: 5, child: SizedBox())
+                    ],
+                  ),
+                ))));
   }
 }

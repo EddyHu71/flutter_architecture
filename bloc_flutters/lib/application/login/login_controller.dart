@@ -6,7 +6,7 @@ import 'package:bloc_flutters/model/response/login_model.dart';
 import 'package:bloc_flutters/presentation/login/pass_login_page.dart';
 import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:get/get.dart';
-import'package:injectable/injectable.dart';
+import 'package:injectable/injectable.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 @injectable
@@ -19,7 +19,7 @@ class LoginController extends GetxController {
   Rx<bool> isLoading = false.obs;
 
   final ILoginRepository iLoginRepository;
-  
+
   LoginController(this.iLoginRepository);
 
   Email get getEmail => email.value;
@@ -35,6 +35,7 @@ class LoginController extends GetxController {
     password.value = Password(input);
     validated();
   }
+
   void validated() {
     isValid.value = email.value.isValid() && password.value.isValid();
   }
@@ -42,10 +43,12 @@ class LoginController extends GetxController {
   void isEmvailValidated() {
     isEmailValid.value = email.value.isValid();
   }
+
   Future<void> onLogin() async {
     isLoading.value = true;
     print("onLogin");
-    var res = await iLoginRepository.login(email.value.getOrCrash(), password.value.getOrCrash());
+    var res = await iLoginRepository.login(
+        email.value.getOrCrash(), password.value.getOrCrash());
     print('Value');
     print(res);
     isLoading.value = false;
@@ -63,6 +66,5 @@ class LoginController extends GetxController {
       storageData.writeToken(jsons['token']);
       Get.offNamedUntil(Routers.mainpage, (route) => false);
     });
-    
   }
 }

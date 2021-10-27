@@ -17,19 +17,19 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   RegisterBloc(this.iRegisterRepository) : super(RegisterState.initial()) {
     on<RegisterEvent>((event, emit) async {
       // TODO: implement event handler
-    await event.map(submitRegister: (e) async {
-      register();
-    }, onEmailChanged: (e) async {
-      emit(state.copyWith(
+      await event.map(submitRegister: (e) async {
+        register();
+      }, onEmailChanged: (e) async {
+        emit(state.copyWith(
           email: Email(e.email),
           authfailureOrSuccessOption: none(),
         ));
-    }, onPasswordChanged: (e) async {
-      emit(state.copyWith(
-        password: Password(e.password),
-        authfailureOrSuccessOption: none(),
-      ));
-    });
+      }, onPasswordChanged: (e) async {
+        emit(state.copyWith(
+          password: Password(e.password),
+          authfailureOrSuccessOption: none(),
+        ));
+      });
     });
   }
 
@@ -40,20 +40,19 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     final isPasswordValid = state.password.isValid();
     if (isEmailValid && isPasswordValid) {
       emit(state.copyWith(
-        isSubmitting: false,
-        isLoading: true,
-        authfailureOrSuccessOption: none()
-      ));
+          isSubmitting: false,
+          isLoading: true,
+          authfailureOrSuccessOption: none()));
       await Future.delayed(const Duration(seconds: 2));
-      failOrSuccess = await iRegisterRepository.register(state.email.getOrCrash(), state.password.getOrCrash());
+      failOrSuccess = await iRegisterRepository.register(
+          state.email.getOrCrash(), state.password.getOrCrash());
       print("Register success");
     }
 
     emit(state.copyWith(
-      isSubmitting: false,
-      isLoading: false,
-      showErrorMessage: true,
-      authfailureOrSuccessOption: optionOf(failOrSuccess)
-    ));
+        isSubmitting: false,
+        isLoading: false,
+        showErrorMessage: true,
+        authfailureOrSuccessOption: optionOf(failOrSuccess)));
   }
 }

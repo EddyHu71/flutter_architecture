@@ -152,17 +152,18 @@ class ViewDataPage extends HookWidget {
                                   shrinkWrap: true,
                                   itemBuilder:
                                       (BuildContext context, int index) {
-                                        print(listData.data[index].name);
+                                    print(listData.data[index].name);
                                     return InkWell(
-                                      onTap: () {
-                                        Get.to(DetailViewData(datum: listData.data[index]));
-                                      },
-                                      child : Card(
-                                      child: SizedBox(
-                                          height: 20, child: Text(
-                                            listData.data[index].name)
-                                          ),
-                                    ));
+                                        onTap: () {
+                                          Get.to(DetailViewData(
+                                              datum: listData.data[index]));
+                                        },
+                                        child: Card(
+                                          child: SizedBox(
+                                              height: 20,
+                                              child: Text(
+                                                  listData.data[index].name)),
+                                        ));
                                   },
                                 );
                               },

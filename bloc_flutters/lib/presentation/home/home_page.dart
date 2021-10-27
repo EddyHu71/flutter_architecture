@@ -1,3 +1,4 @@
+import 'package:bloc_flutters/presentation/home/profile/profile_page.dart';
 import 'package:bloc_flutters/presentation/home/view_data/view_data_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -5,8 +6,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 class HomePage extends HookWidget {
   final _pages = [
     ViewDataPage(),
-    Center(child: Text("Profile")),
-
+    // Center(child: Text("Profile")),
+    ProfilePage(),
     // Center(child : Text("ABC"))
   ];
   @override
