@@ -1,7 +1,7 @@
 import 'package:bloc_flutters/application/register/register_bloc.dart';
 import 'package:bloc_flutters/injection.dart';
 import 'package:bloc_flutters/presentation/core/alerts.dart';
-import 'package:bloc_flutters/presentation/core/components.dart';
+import 'package:bloc_flutters/presentation/core/buttons.dart';
 import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -91,50 +91,47 @@ class RegisterPage extends HookWidget {
                                   .add(RegisterEvent.onPasswordChanged(value)),
                               validator: (_) => state.email.value.fold(
                                   (l) => l.maybeMap(
-                                      empty: (_) => "Password anda kosong",
+                                      empty: (_) => "Konfirmasi Password anda kosong",
                                       invalidPassword: (_) =>
-                                          "Password anda tidak valid",
+                                          "Konfirmasi Password anda tidak valid",
                                       orElse: () => null),
                                   (r) => null)),
-                          // TextFormField(
-                          //   keyboardType: TextInputType.text,
-                          //   autovalidateMode:
-                          //       AutovalidateMode.onUserInteraction,
-                          //   decoration: InputDecoration(
-                          //       fillColor: Colors.grey.withOpacity(0.4),
-                          //       hintText: "Password",
-                          //       border: InputBorder.none,
-                          //       prefixIcon: Icon(Icons.lock),
-                          //       suffixIcon: IconButton(
-                          //         icon: const Icon(Icons.remove_red_eye),
-                          //         onPressed: () async {
-                          //           useState(() {
-                          //             hidden = !hidden;
-                          //           });
-                          //         }),
-                          //       ),
-                          //   onChanged: (value) => context
-                          //       .read<RegisterBloc>()
-                          //       .add(RegisterEvent.onPasswordChanged(value)),
-                          //   validator: (_) => state.email.value.fold(
-                          //       (l) => l.maybeMap(
-                          //           empty: (_) => "Konfirmasi Password anda kosong",
-                          //           invalidPassword: (_) =>
-                          //               "Konfirmasi Password anda tidak valid",
-                          //           orElse: () => null),
-                          //       (r) => null)),
+                          TextFormField(
+                            keyboardType: TextInputType.text,
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            decoration: InputDecoration(
+                                fillColor: Colors.grey.withOpacity(0.4),
+                                hintText: "Konfirmasi Password",
+                                border: InputBorder.none,
+                                prefixIcon: Icon(Icons.lock),
+                                suffixIcon: IconButton(
+                                  icon: const Icon(Icons.remove_red_eye),
+                                  onPressed: () async {
+                                    useState(() {
+                                      hidden = !hidden;
+                                    });
+                                  }),
+                                ),
+                            onChanged: (value) => context
+                                .read<RegisterBloc>()
+                                .add(RegisterEvent.onPasswordChanged(value)),
+                            validator: (_) => state.email.value.fold(
+                                (l) => l.maybeMap(
+                                    empty: (_) => "Konfirmasi Password anda kosong",
+                                    invalidPassword: (_) =>
+                                        "Konfirmasi Password anda tidak valid",
+                                    orElse: () => null),
+                                (r) => null)),
                           const Expanded(flex: 1, child: SizedBox()),
                           Padding(
                             padding:
                                 const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
-                            child: Components.button(
-                                text: "Register",
-                                onPressed: () {
-                                  context.read<RegisterBloc>().add(
+                            child: Buttons(onPressed: () {
+                              context.read<RegisterBloc>().add(
                                       const RegisterEvent.submitRegister());
                                   print("Register");
-                                  // Get.off(HomePage());
-                                }),
+                            }, text: "Register"),
                           ),
                           const Expanded(flex: 5, child: SizedBox())
                         ],

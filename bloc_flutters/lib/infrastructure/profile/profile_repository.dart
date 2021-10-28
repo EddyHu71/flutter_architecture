@@ -63,4 +63,22 @@ class ProfileRepository implements IProfileRepository {
       return left(ProfileFailure.failed());
     }
   }
+
+  @override
+  Future<Either<ProfileFailure, Unit>> logout() async {
+    // TODO: implement logout
+    try {
+      var token = await storageData.deleteToken();
+      print("Logout");
+      print(token);
+      if (token == true) {
+        print("Logout success");
+        await storageData.deleteAll();
+        return right(unit);
+      }
+      return left(ProfileFailure.failed());
+    } catch (e) {
+      return left(ProfileFailure.failed());
+    }
+  }
 }

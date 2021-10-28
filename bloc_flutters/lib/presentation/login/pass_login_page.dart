@@ -1,7 +1,7 @@
 import 'package:bloc_flutters/application/login/login_controller.dart';
 import 'package:bloc_flutters/domain/login/login_objects.dart';
 import 'package:bloc_flutters/injection.dart';
-import 'package:bloc_flutters/presentation/core/components.dart';
+import 'package:bloc_flutters/presentation/core/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
@@ -67,8 +67,8 @@ class PassLoginPage extends StatelessWidget {
                       Padding(
                         padding:
                             const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
-                        child: Components.button(
-                            text: "Login",
+                        child: Buttons(
+                          text: "Login",
                             onPressed: () {
                               print("Login");
                               // Get.off(HomePage());
@@ -76,7 +76,8 @@ class PassLoginPage extends StatelessWidget {
                                 print("Login success");
                                 loginController.onLogin();
                               }
-                            }),
+                            }
+                        )
                       ),
                       const Expanded(flex: 5, child: SizedBox())
                     ],

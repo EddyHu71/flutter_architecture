@@ -1,7 +1,6 @@
 import 'package:bloc_flutters/application/view_data/view_data_bloc.dart';
 import 'package:bloc_flutters/injection.dart';
 import 'package:bloc_flutters/presentation/core/alerts.dart';
-import 'package:bloc_flutters/presentation/core/components.dart';
 import 'package:bloc_flutters/presentation/home/view_data/detail_view_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,13 +14,15 @@ class ViewDataPage extends HookWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return BlocProvider<ViewDataBloc>(
-        create: (context) =>
-            getIt<ViewDataBloc>()..add(const ViewDataEvent.started()),
-        child: BlocConsumer<ViewDataBloc, ViewDataState>(
+      create: (context) => getIt<ViewDataBloc>()..add(ViewDataEvent.started()), 
+      child : BlocConsumer<ViewDataBloc, ViewDataState>(
             listener: (BuildContext context, ViewDataState state) {
           state.maybeMap(
-              orElse: () {},
+              orElse: () {
+                print("Or Else listener");
+              },
               loaded: (s) {
+                print("Loaded listener");
                 // s.optionFailedOrSuccess.fold(
                 //     () => null,
                 //     (a) => a.fold(
@@ -33,6 +34,7 @@ class ViewDataPage extends HookWidget {
                     (l) => l.fold(
                         (l) => l.maybeMap(
                               noInternet: (_) {
+                                print('No Internet');
                                 Alerts.logoutAlert(
                                     title: "No Internet",
                                     subTitle: "You don't connect with internet",
@@ -43,6 +45,7 @@ class ViewDataPage extends HookWidget {
                                     context: context);
                               },
                               failed: (_) {
+                                print("Failed");
                                 Alerts.logoutAlert(
                                     title: "Failed",
                                     subTitle: "Failed to connect",
@@ -51,6 +54,7 @@ class ViewDataPage extends HookWidget {
                                     context: context);
                               },
                               noData: (_) {
+                                print("No Data");
                                 Alerts.logoutAlert(
                                     title: "No Data",
                                     subTitle: "No Data",

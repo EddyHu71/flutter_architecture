@@ -1,15 +1,11 @@
 import 'package:bloc_flutters/application/login/login_controller.dart';
 import 'package:bloc_flutters/domain/login/login_objects.dart';
 import 'package:bloc_flutters/injection.dart';
-import 'package:bloc_flutters/presentation/core/alerts.dart';
-import 'package:bloc_flutters/presentation/core/components.dart';
+import 'package:bloc_flutters/presentation/core/buttons.dart';
 import 'package:bloc_flutters/presentation/core/utils.dart';
-import 'package:bloc_flutters/presentation/home/home_page.dart';
 import 'package:bloc_flutters/presentation/login/pass_login_page.dart';
 import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
@@ -62,8 +58,8 @@ class LoginPage extends StatelessWidget {
                       Padding(
                         padding:
                             const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
-                        child: Components.button(
-                            text: "Login",
+                        child: Buttons(
+                          text: "Login",
                             onPressed: () {
                               if (loginController.isEmailValid.value == true) {
                                 Get.to(PassLoginPage(
@@ -77,18 +73,20 @@ class LoginPage extends StatelessWidget {
                               //     .add(const LoginEvent.signIn());
                               debugPrint("Login");
                               // Get.off(HomePage());
-                            }),
+                            }
+                        )
                       ),
                       Padding(
                         padding:
                             const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
-                        child: Components.button(
-                            text: "Register",
+                        child: Buttons(
+                          text: "Register",
                             onPressed: () {
                               Get.toNamed(Routers.registerpage);
                               print("Register");
                               // Get.off(HomePage());
-                            }),
+                            }
+                        )
                       ),
                       const Expanded(flex: 5, child: SizedBox())
                     ],

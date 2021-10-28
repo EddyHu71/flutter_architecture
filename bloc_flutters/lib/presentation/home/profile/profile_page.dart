@@ -13,20 +13,27 @@ class ProfilePage extends HookWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return BlocProvider<ProfileBloc>(
-        create: (context) =>
-            getIt<ProfileBloc>()..add(ProfileEvent.getDataProfile()),
-        child: BlocConsumer<ProfileBloc, ProfileState>(
+      create: (context) => getIt<ProfileBloc>(), 
+      child : BlocConsumer<ProfileBloc, ProfileState>(
           listener: (context, state) {
             // TODO: implement listener
             state.maybeMap(
                 orElse: () => null,
+                logoutSuccess: (e) {
+                  print("Go to ${Routers.login}");
+                  Get.offNamedUntil(Routers.login, (route) => false);
+                },
                 loaded: (s) {
                   s.optionFailedOrSuccess.match(
                       (t) => t.fold(
                           (l) => l.maybeMap(
                                 orElse: () => null,
+                                invalidToken: (_) {
+                                  print('Invalid Token');
+                                  Get.offNamedUntil(Routers.login, (route) => false);
+                                },
                                 noData: (_) {
-                                  storageData.deleteAll();
+                                  print("No Data");
                                   Get.offNamedUntil(
                                       Routers.login, (route) => false);
                                 },
@@ -51,6 +58,7 @@ class ProfilePage extends HookWidget {
           builder: (context, state) {
             return SafeArea(
               child: state.maybeMap(
+                //loading: (s) => Center(child: CircularProgressIndicator()),
                   orElse: () => Center(child: CircularProgressIndicator()),
                   loaded: (s) {
                     return s.optionFailedOrSuccess.match(
@@ -86,9 +94,7 @@ class ProfilePage extends HookWidget {
                                     subTitle: "Apakah kamu ingin logout?",
                                     withCancel: true,
                                     onPressed: () {
-                                      storageData.deleteAll();
-                                      Get.offNamedUntil(
-                                          Routers.login, (route) => false);
+                                      context.read<ProfileBloc>().add(const ProfileEvent.logout());
                                     },
                                     onCancelPressed: () {
                                       Get.back();

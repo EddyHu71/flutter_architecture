@@ -8,4 +8,6 @@ abstract class IProfileRepository {
       String id);
   Future<Either<ProfileFailure, UpdateProfile>> updateProfile(
       String name, String job);
+
+  Future<Either<ProfileFailure, Unit>> logout();
 }

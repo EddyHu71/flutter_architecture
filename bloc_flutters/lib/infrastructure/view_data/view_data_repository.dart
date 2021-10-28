@@ -20,7 +20,7 @@ class ViewRepository implements IViewRepository {
       var res = await iNetworkService.getHttp(path: UrlPath.getData);
       if (res != null) {
         Map<String, dynamic> jsons = res as Map<String, dynamic>;
-
+        print(jsons);
         return right(ViewData.fromJson(jsons));
       }
       print("Not found");

@@ -29,6 +29,16 @@ class StorageToken {
     print("Delete All");
     await _storage.deleteAll();
   }
+
+  deleteToken() async {
+    print("Delete Token");
+    await _storage.delete(key : "token");
+    final token = await _storage.read(key: "token");
+    if (token == null) {
+      return true;
+    }
+    return false;
+  }
 }
 
 final storageData = StorageToken();
