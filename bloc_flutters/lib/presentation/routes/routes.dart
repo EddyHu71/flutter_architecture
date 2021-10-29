@@ -8,7 +8,7 @@ import 'package:bloc_flutters/model/view_data/view_data.dart';
 import 'package:bloc_flutters/presentation/home/home_page.dart';
 import 'package:bloc_flutters/presentation/home/view_data/detail_view_data.dart';
 import 'package:bloc_flutters/presentation/login/login_page.dart';
-import 'package:bloc_flutters/presentation/login/splash_screen.dart';
+import 'package:bloc_flutters/presentation/onboard/splash_screen.dart';
 import 'package:bloc_flutters/presentation/register/register_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';

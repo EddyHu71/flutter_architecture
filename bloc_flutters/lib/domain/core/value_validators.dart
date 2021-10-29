@@ -9,6 +9,24 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
   }
 }
 
+Either<ValueFailure<String>, String> validateToken(
+  String input,
+  int maxLength,
+) {
+  if (input.length == maxLength) {
+    return right(input);
+  } else if (input.length < maxLength) {
+    return left(ValueFailure.shortToken(failedValue: input));
+  } else {
+    return left(
+      ValueFailure.exceedingLength(
+        failedValue: input,
+        max: maxLength,
+      ),
+    );
+  }
+}
+
 Either<ValueFailure<String>, String> validateEmail(String input) {
   if (!input.contains("@")) {
     return left(ValueFailure.invalidEmail(failedValue: input));
