@@ -24,7 +24,7 @@ class LoginController extends GetxController {
 
   Email get getEmail => email.value;
   Password get getPassword => password.value;
-
+ 
   void onEmailChanged(String input) {
     email.value = Email(input);
     isEmvailValidated();
