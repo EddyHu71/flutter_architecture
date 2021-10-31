@@ -50,6 +50,7 @@ class LoginController extends GetxController {
     var res = await iLoginRepository.login(
         email.value.getOrCrash(), password.value.getOrCrash());
     isLoading.value = false;
+    print(res);
     res.match(
       (l) {
       print("Left");
@@ -64,8 +65,8 @@ class LoginController extends GetxController {
       // Map<String, dynamic> jsons = res as Map<String, dynamic>;
       
       print("Login controller success");
-      print(r.token);
-      storageData.writeToken(r.token??"");
+      // print(r.token);
+      // storageData.writeToken(r.token??"");
       
       Get.offNamedUntil(Routers.mainpage, (route) => false);
     });

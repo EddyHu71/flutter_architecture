@@ -43,16 +43,6 @@ class LoginPage extends StatelessWidget {
                                 invalidEmail: (_) => "Email Anda tidak valid",
                                 orElse: () => null),
                             (r) => null),
-                        // onChanged: (value) => context
-                        //     .read<LoginBloc>()
-                        //     .add(LoginEvent.onEmailChanged(value)),
-                        // validator: (_) => state.email.value.fold(
-                        //     (l) => l.maybeMap(
-                        //         empty: (_) => "Email anda kosong",
-                        //         invalidEmail: (_) =>
-                        //             "Email anda tidak valid",
-                        //         orElse: () => null),
-                        //     (r) => null)),
                       ),
                       const Expanded(flex: 1, child: SizedBox()),
                       Padding(

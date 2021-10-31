@@ -66,8 +66,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i22.RegisterBloc(get<_i17.IRegisterRepository>()));
   gh.factory<_i23.ViewDataBloc>(
       () => _i23.ViewDataBloc(get<_i19.IViewRepository>()));
-  gh.lazySingleton<_i24.ILoginRepository>(
-      () => _i25.LoginRepository(get<_i13.INetworkService>()));
+  gh.lazySingleton<_i24.ILoginRepository>(() =>
+      _i25.LoginRepository(get<_i13.INetworkService>(), get<_i7.IStorage>()));
   gh.factory<_i26.LoginController>(
       () => _i26.LoginController(get<_i24.ILoginRepository>()));
   return get;

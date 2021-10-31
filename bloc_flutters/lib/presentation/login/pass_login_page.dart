@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 
-class PassLoginPage extends StatelessWidget {
+class PassLoginPage extends HookWidget {
   PassLoginPage({required Email email, Key? key}) : super(key: key);
   final LoginController loginController = Get.put(getIt<LoginController>());
   bool hidden = true;
@@ -34,14 +34,15 @@ class PassLoginPage extends StatelessWidget {
                             hintText: "Password",
                             border: InputBorder.none,
                             prefixIcon: const Icon(Icons.lock),
-                            suffixIcon: IconButton(
-                                icon: const Icon(Icons.remove_red_eye),
-                                onPressed: () {
-                                  useState(() {
-                                    hidden = !hidden;
-                                  });
-                                })),
-                        obscureText: hidden,
+                            // suffixIcon: IconButton(
+                            //     icon: const Icon(Icons.remove_red_eye),
+                            //     onPressed: () {
+                            //       useState(() {
+                            //         hidden = !hidden;
+                            //       });
+                            //     })
+                                ),
+                        // obscureText: hidden,
                         onChanged: (value) =>
                             loginController.onPasswordChanged(value),
                         validator: (_) => loginController.getPassword.value
@@ -52,16 +53,6 @@ class PassLoginPage extends StatelessWidget {
                                         "Password anda tidak valid",
                                     orElse: () => null),
                                 (r) => null),
-                        // onChanged: (value) => context
-                        //     .read<LoginBloc>()
-                        //     .add(LoginEvent.onPasswordChanged(value)),
-                        // validator: (_) => state.email.value.fold(
-                        //     (l) => l.maybeMap(
-                        //         empty: (_) => "Password anda kosong",
-                        //         invalidPassword: (_) =>
-                        //             "Password anda tidak valid",
-                        //         orElse: () => null),
-                        //     (r) => null),
                       ),
                       const Expanded(flex: 1, child: SizedBox()),
                       Padding(
