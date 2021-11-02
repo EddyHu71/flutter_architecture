@@ -3,5 +3,5 @@ import 'package:fpdart/fpdart.dart';
 
 abstract class IOnBoardRepository {
 
-  Future<Either<OnBoardFailure, Unit>> auth();
+  Future<Either<OnBoardFailure, Unit>> auth(String token);
 }

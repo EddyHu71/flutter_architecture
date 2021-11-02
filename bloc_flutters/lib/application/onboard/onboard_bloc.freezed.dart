@@ -20,6 +20,10 @@ class _$OnboardEventTearOff {
   _Started authToken() {
     return const _Started();
   }
+
+  _DeleteAllLocalStorage deleteAllLocalStorage() {
+    return const _DeleteAllLocalStorage();
+  }
 }
 
 /// @nodoc
@@ -30,32 +34,39 @@ mixin _$OnboardEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authToken,
+    required TResult Function() deleteAllLocalStorage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? authToken,
+    TResult Function()? deleteAllLocalStorage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? authToken,
+    TResult Function()? deleteAllLocalStorage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) authToken,
+    required TResult Function(_DeleteAllLocalStorage value)
+        deleteAllLocalStorage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? authToken,
+    TResult Function(_DeleteAllLocalStorage value)? deleteAllLocalStorage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? authToken,
+    TResult Function(_DeleteAllLocalStorage value)? deleteAllLocalStorage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,6 +127,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authToken,
+    required TResult Function() deleteAllLocalStorage,
   }) {
     return authToken();
   }
@@ -124,6 +136,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? authToken,
+    TResult Function()? deleteAllLocalStorage,
   }) {
     return authToken?.call();
   }
@@ -132,6 +145,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? authToken,
+    TResult Function()? deleteAllLocalStorage,
     required TResult orElse(),
   }) {
     if (authToken != null) {
@@ -144,6 +158,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) authToken,
+    required TResult Function(_DeleteAllLocalStorage value)
+        deleteAllLocalStorage,
   }) {
     return authToken(this);
   }
@@ -152,6 +168,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? authToken,
+    TResult Function(_DeleteAllLocalStorage value)? deleteAllLocalStorage,
   }) {
     return authToken?.call(this);
   }
@@ -160,6 +177,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? authToken,
+    TResult Function(_DeleteAllLocalStorage value)? deleteAllLocalStorage,
     required TResult orElse(),
   }) {
     if (authToken != null) {
@@ -174,6 +192,112 @@ abstract class _Started implements OnboardEvent {
 }
 
 /// @nodoc
+abstract class _$DeleteAllLocalStorageCopyWith<$Res> {
+  factory _$DeleteAllLocalStorageCopyWith(_DeleteAllLocalStorage value,
+          $Res Function(_DeleteAllLocalStorage) then) =
+      __$DeleteAllLocalStorageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$DeleteAllLocalStorageCopyWithImpl<$Res>
+    extends _$OnboardEventCopyWithImpl<$Res>
+    implements _$DeleteAllLocalStorageCopyWith<$Res> {
+  __$DeleteAllLocalStorageCopyWithImpl(_DeleteAllLocalStorage _value,
+      $Res Function(_DeleteAllLocalStorage) _then)
+      : super(_value, (v) => _then(v as _DeleteAllLocalStorage));
+
+  @override
+  _DeleteAllLocalStorage get _value => super._value as _DeleteAllLocalStorage;
+}
+
+/// @nodoc
+
+class _$_DeleteAllLocalStorage implements _DeleteAllLocalStorage {
+  const _$_DeleteAllLocalStorage();
+
+  @override
+  String toString() {
+    return 'OnboardEvent.deleteAllLocalStorage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _DeleteAllLocalStorage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authToken,
+    required TResult Function() deleteAllLocalStorage,
+  }) {
+    return deleteAllLocalStorage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? authToken,
+    TResult Function()? deleteAllLocalStorage,
+  }) {
+    return deleteAllLocalStorage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authToken,
+    TResult Function()? deleteAllLocalStorage,
+    required TResult orElse(),
+  }) {
+    if (deleteAllLocalStorage != null) {
+      return deleteAllLocalStorage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) authToken,
+    required TResult Function(_DeleteAllLocalStorage value)
+        deleteAllLocalStorage,
+  }) {
+    return deleteAllLocalStorage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? authToken,
+    TResult Function(_DeleteAllLocalStorage value)? deleteAllLocalStorage,
+  }) {
+    return deleteAllLocalStorage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? authToken,
+    TResult Function(_DeleteAllLocalStorage value)? deleteAllLocalStorage,
+    required TResult orElse(),
+  }) {
+    if (deleteAllLocalStorage != null) {
+      return deleteAllLocalStorage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteAllLocalStorage implements OnboardEvent {
+  const factory _DeleteAllLocalStorage() = _$_DeleteAllLocalStorage;
+}
+
+/// @nodoc
 class _$OnboardStateTearOff {
   const _$OnboardStateTearOff();
 
@@ -181,12 +305,14 @@ class _$OnboardStateTearOff {
       {required JWTToken jwtToken,
       required bool isAuthenticated,
       required bool isLoading,
+      required bool showErrorMessage,
       required Option<Either<OnBoardFailure, Unit>>
           authTokenFailOrSuccessOption}) {
     return _OnboardState(
       jwtToken: jwtToken,
       isAuthenticated: isAuthenticated,
       isLoading: isLoading,
+      showErrorMessage: showErrorMessage,
       authTokenFailOrSuccessOption: authTokenFailOrSuccessOption,
     );
   }
@@ -200,6 +326,7 @@ mixin _$OnboardState {
   JWTToken get jwtToken => throw _privateConstructorUsedError;
   bool get isAuthenticated => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get showErrorMessage => throw _privateConstructorUsedError;
   Option<Either<OnBoardFailure, Unit>> get authTokenFailOrSuccessOption =>
       throw _privateConstructorUsedError;
 
@@ -217,6 +344,7 @@ abstract class $OnboardStateCopyWith<$Res> {
       {JWTToken jwtToken,
       bool isAuthenticated,
       bool isLoading,
+      bool showErrorMessage,
       Option<Either<OnBoardFailure, Unit>> authTokenFailOrSuccessOption});
 }
 
@@ -233,6 +361,7 @@ class _$OnboardStateCopyWithImpl<$Res> implements $OnboardStateCopyWith<$Res> {
     Object? jwtToken = freezed,
     Object? isAuthenticated = freezed,
     Object? isLoading = freezed,
+    Object? showErrorMessage = freezed,
     Object? authTokenFailOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -247,6 +376,10 @@ class _$OnboardStateCopyWithImpl<$Res> implements $OnboardStateCopyWith<$Res> {
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showErrorMessage: showErrorMessage == freezed
+          ? _value.showErrorMessage
+          : showErrorMessage // ignore: cast_nullable_to_non_nullable
               as bool,
       authTokenFailOrSuccessOption: authTokenFailOrSuccessOption == freezed
           ? _value.authTokenFailOrSuccessOption
@@ -267,6 +400,7 @@ abstract class _$OnboardStateCopyWith<$Res>
       {JWTToken jwtToken,
       bool isAuthenticated,
       bool isLoading,
+      bool showErrorMessage,
       Option<Either<OnBoardFailure, Unit>> authTokenFailOrSuccessOption});
 }
 
@@ -285,6 +419,7 @@ class __$OnboardStateCopyWithImpl<$Res> extends _$OnboardStateCopyWithImpl<$Res>
     Object? jwtToken = freezed,
     Object? isAuthenticated = freezed,
     Object? isLoading = freezed,
+    Object? showErrorMessage = freezed,
     Object? authTokenFailOrSuccessOption = freezed,
   }) {
     return _then(_OnboardState(
@@ -299,6 +434,10 @@ class __$OnboardStateCopyWithImpl<$Res> extends _$OnboardStateCopyWithImpl<$Res>
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showErrorMessage: showErrorMessage == freezed
+          ? _value.showErrorMessage
+          : showErrorMessage // ignore: cast_nullable_to_non_nullable
               as bool,
       authTokenFailOrSuccessOption: authTokenFailOrSuccessOption == freezed
           ? _value.authTokenFailOrSuccessOption
@@ -315,6 +454,7 @@ class _$_OnboardState implements _OnboardState {
       {required this.jwtToken,
       required this.isAuthenticated,
       required this.isLoading,
+      required this.showErrorMessage,
       required this.authTokenFailOrSuccessOption});
 
   @override
@@ -324,11 +464,13 @@ class _$_OnboardState implements _OnboardState {
   @override
   final bool isLoading;
   @override
+  final bool showErrorMessage;
+  @override
   final Option<Either<OnBoardFailure, Unit>> authTokenFailOrSuccessOption;
 
   @override
   String toString() {
-    return 'OnboardState(jwtToken: $jwtToken, isAuthenticated: $isAuthenticated, isLoading: $isLoading, authTokenFailOrSuccessOption: $authTokenFailOrSuccessOption)';
+    return 'OnboardState(jwtToken: $jwtToken, isAuthenticated: $isAuthenticated, isLoading: $isLoading, showErrorMessage: $showErrorMessage, authTokenFailOrSuccessOption: $authTokenFailOrSuccessOption)';
   }
 
   @override
@@ -342,6 +484,8 @@ class _$_OnboardState implements _OnboardState {
                 other.isAuthenticated == isAuthenticated) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.showErrorMessage, showErrorMessage) ||
+                other.showErrorMessage == showErrorMessage) &&
             (identical(other.authTokenFailOrSuccessOption,
                     authTokenFailOrSuccessOption) ||
                 other.authTokenFailOrSuccessOption ==
@@ -350,7 +494,7 @@ class _$_OnboardState implements _OnboardState {
 
   @override
   int get hashCode => Object.hash(runtimeType, jwtToken, isAuthenticated,
-      isLoading, authTokenFailOrSuccessOption);
+      isLoading, showErrorMessage, authTokenFailOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -363,6 +507,7 @@ abstract class _OnboardState implements OnboardState {
       {required JWTToken jwtToken,
       required bool isAuthenticated,
       required bool isLoading,
+      required bool showErrorMessage,
       required Option<Either<OnBoardFailure, Unit>>
           authTokenFailOrSuccessOption}) = _$_OnboardState;
 
@@ -372,6 +517,8 @@ abstract class _OnboardState implements OnboardState {
   bool get isAuthenticated;
   @override
   bool get isLoading;
+  @override
+  bool get showErrorMessage;
   @override
   Option<Either<OnBoardFailure, Unit>> get authTokenFailOrSuccessOption;
   @override

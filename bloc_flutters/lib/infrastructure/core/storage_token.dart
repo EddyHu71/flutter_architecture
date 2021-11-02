@@ -28,6 +28,11 @@ class StorageToken {
   deleteAll() async {
     print("Delete All");
     await _storage.deleteAll();
+    final reads = await _storage.readAll();
+    if (reads == null) {
+      return true;
+    }
+    return false;
   }
 
   deleteToken() async {

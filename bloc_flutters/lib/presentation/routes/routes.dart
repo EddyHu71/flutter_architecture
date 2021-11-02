@@ -1,3 +1,4 @@
+import 'package:bloc_flutters/application/onboard/onboard_bloc.dart';
 import 'package:bloc_flutters/application/profile/profile_bloc.dart';
 import 'package:bloc_flutters/presentation/home/profile/profile_page.dart';
 import 'package:bloc_flutters/presentation/home/view_data/view_data_page.dart';
@@ -32,7 +33,12 @@ class Routers {
     ),
     GetPage(name: Routers.profilepage, page: () => ProfilePage() ),
     GetPage(name: Routers.viewData, page: () => ViewDataPage()),
-    GetPage(name: Routers.splashScreen, page: () => SplashScreen()),
+    GetPage(name: Routers.splashScreen, 
+      page: () => BlocProvider<OnboardBloc>(
+        create: (context) => getIt<OnboardBloc>()..add(OnboardEvent.authToken()), 
+        child : SplashScreen(),
+      )
+    ),
     GetPage(name: Routers.registerpage, page: () => RegisterPage()),
     GetPage(
         name: Routers.detailPage,

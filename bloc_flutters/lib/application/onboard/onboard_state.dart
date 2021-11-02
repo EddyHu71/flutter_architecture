@@ -6,6 +6,7 @@ class OnboardState with _$OnboardState {
     required JWTToken jwtToken,
     required bool isAuthenticated,
     required bool isLoading,
+    required bool showErrorMessage,
     required Option<Either<OnBoardFailure, Unit>> authTokenFailOrSuccessOption,
   }) = _OnboardState;
 
@@ -13,6 +14,7 @@ class OnboardState with _$OnboardState {
     jwtToken: JWTToken(''),
     isLoading: false,
     isAuthenticated: false, 
+    showErrorMessage: false,
     authTokenFailOrSuccessOption: none()
   );
 }

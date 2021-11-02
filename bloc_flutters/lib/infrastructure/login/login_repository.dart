@@ -30,10 +30,6 @@ class LoginRepository implements ILoginRepository {
       print(res);
       if (res != null) {
         Map<String, dynamic> json = res as Map<String, dynamic>;
-        // storage
-        
-        // storageData.writeToken(json['token']);
-        // print(storageData.readToken());
         iStorage.putString(key: "token", value: json['token']);
         print("Get Data");
         print(iStorage.getData());
