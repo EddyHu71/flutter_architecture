@@ -48,7 +48,7 @@ dependencies:
   json_annotation: ^4.3.0
   shimmer: ^2.0.0
   uuid: ^3.0.5
-  code_id_flutter:
+  code_id_flutter: ^0.0.4
 
 dev_dependencies:
   bloc_test: ^8.5.0
