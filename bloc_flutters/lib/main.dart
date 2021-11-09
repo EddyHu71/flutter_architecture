@@ -1,6 +1,7 @@
 import 'package:bloc_flutters/injection.dart';
 import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +13,7 @@ void main() async {
   await dotenv.load(fileName: ".env");
   configureInjection(Environment.dev);
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
 
@@ -23,7 +25,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      smartManagement: SmartManagement.full,
       title: "Flutter Login",
       theme: ThemeData(
         textTheme: GoogleFonts.heeboTextTheme(),

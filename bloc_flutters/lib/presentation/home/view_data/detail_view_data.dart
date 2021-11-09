@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-
 class DetailViewData extends HookWidget {
   final Datum datum;
-  const DetailViewData({Key? key, required this.datum}) : super(key : key);
+  const DetailViewData({Key? key, required this.datum}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -23,12 +22,14 @@ class DetailViewData extends HookWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Text(datum.name, style : const TextStyle(fontWeight: FontWeight.bold, fontSize : 24)),
-                Text(datum.year.toString(), style : const TextStyle(fontSize : 18)),
+                Text(datum.name,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 24)),
+                Text(datum.year.toString(),
+                    style: const TextStyle(fontSize: 18)),
               ],
             ),
           )),
     );
   }
-
 }

@@ -5,7 +5,7 @@ import 'package:bloc_flutters/domain/auth/auth_failure.dart';
 import 'package:injectable/injectable.dart';
 import 'package:bloc_flutters/domain/auth/i_auth_repository.dart';
 
-@LazySingleton(as : IAuthRepository)
+@LazySingleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
   
   @override
@@ -28,5 +28,4 @@ class AuthRepository implements IAuthRepository {
       return left(AuthFailure.failed());
     }
   }
-
 }
