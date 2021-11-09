@@ -18,9 +18,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthEvent>((event, emit) async {
       // TODO: implement event handler
       await event.map(
-        authToken: (e) async {
+        authToken: (_) async {
           print("Auth executed");
-          await Future.delayed(Duration(seconds: 3));
+          await Future.delayed(const Duration(seconds: 3));
           var tokens = await iAuthRepository.authToken();
           print("Token value");
           print(tokens);

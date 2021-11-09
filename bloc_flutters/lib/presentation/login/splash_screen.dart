@@ -40,10 +40,10 @@ class SplashScreen extends HookWidget {
             print(s);
             s.optionFailedOrSuccess.match(
               (t) => t.fold(
-                (l) => Get.offNamedUntil(Routers.login, (route) => false), 
-                (r) => Get.offNamedUntil(Routers.mainpage, (route) => false)
+                (l) => Get.offNamed(Routers.login), 
+                (r) => Get.offNamed(Routers.mainpage)
                 ),
-              () => Center(child: Image.asset(Utils.LOGO, fit: BoxFit.fitWidth)));
+              () => null);
           },
           orElse: () {
             return Center(child: Image.asset(Utils.LOGO, fit: BoxFit.fitWidth));

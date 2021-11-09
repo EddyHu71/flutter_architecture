@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class HomePage extends HookWidget {
+  HomePage({Key? key}) : super(key: key);
   final _pages = [
     ViewDataPage(),
     Center(child: Text("Profile")),
     
     // Center(child : Text("ABC"))
   ];
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

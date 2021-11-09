@@ -18,7 +18,10 @@ class Routers {
   static const String viewData = "/viewData";
 
   final List<GetPage> routes = [
-    GetPage(name: Routers.mainpage, page: () => HomePage()),
+    GetPage(
+      name: Routers.mainpage, 
+      page: () => HomePage()
+    ),
     GetPage(
       name: Routers.login,
       page: () => const LoginPage(),

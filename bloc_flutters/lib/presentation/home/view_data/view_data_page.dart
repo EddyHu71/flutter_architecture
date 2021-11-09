@@ -21,6 +21,7 @@ class ViewDataPage extends HookWidget {
           state.maybeMap(
               orElse: () {},
               loaded: (s) {
+                print("Loaded in listener");
                 // s.optionFailedOrSuccess.fold(
                 //     () => null,
                 //     (a) => a.fold(
