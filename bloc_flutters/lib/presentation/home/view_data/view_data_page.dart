@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:bloc_flutters/application/view_data/view_data_bloc.dart';
 import 'package:bloc_flutters/injection.dart';
 import 'package:bloc_flutters/presentation/core/alerts.dart';
 import 'package:bloc_flutters/presentation/core/components.dart';
+import 'package:bloc_flutters/presentation/home/view_data/detail_view_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -21,6 +24,7 @@ class ViewDataPage extends HookWidget {
           state.maybeMap(
               orElse: () {},
               loaded: (s) {
+                print("Loaded in listener");
                 // s.optionFailedOrSuccess.fold(
                 //     () => null,
                 //     (a) => a.fold(
@@ -143,14 +147,49 @@ class ViewDataPage extends HookWidget {
                                 print("Detail data");
                                 print(listData.data[1].name);
                                 return ListView.separated(
-                                  separatorBuilder: (BuildContext context, int index) {
-                                    return  const SizedBox(height : 8);
+                                  separatorBuilder:
+                                      (BuildContext context, int index) {
+                                    return const SizedBox(height: 8);
                                   },
                                   itemCount: 6,
                                   shrinkWrap: true,
                                   itemBuilder:
                                       (BuildContext context, int index) {
-                                    return const Card(child: SizedBox( height: 20, child: Text("Test")),);
+                                    return InkWell(
+                                        onTap: () {
+                                          Get.to(DetailViewData(
+                                              datum: listData.data[index]));
+                                        },
+                                        child: Card(
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Text(listData.data[index].name,
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 20)),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 4.0),
+                                                  child: Text(
+                                                      listData.data[index].year
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold)),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ));
                                   },
                                 );
                               },

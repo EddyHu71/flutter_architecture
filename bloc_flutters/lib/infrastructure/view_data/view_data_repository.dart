@@ -20,15 +20,14 @@ class ViewRepository implements IViewRepository {
       var res = await iNetworkService.getHttp(path: UrlPath.getData);
       if (res != null) {
         Map<String, dynamic> jsons = res as Map<String, dynamic>;
-        
+
         return right(ViewData.fromJson(jsons));
       }
       print("Not found");
       return left(const ViewFailure.noData());
     } on NetworkException {
       return left(ViewFailure.noInternet());
-    } 
-    catch (e) {
+    } catch (e) {
       return left(const ViewFailure.failed());
     }
   }
