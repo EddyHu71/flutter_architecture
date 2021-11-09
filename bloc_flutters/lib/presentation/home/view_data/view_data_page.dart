@@ -156,26 +156,40 @@ class ViewDataPage extends HookWidget {
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     return InkWell(
-                                      onTap : () {
-                                        Get.to(DetailViewData(datum: listData.data[index]));
-                                      },
-                                      child : Card(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Text(listData.data[index].name, style : TextStyle(fontWeight: FontWeight.bold, fontSize : 20)),
-                                            Padding(
-                                              padding: const EdgeInsets.only(top : 4.0),
-                                              child: Text(listData.data[index].year.toString(), style : TextStyle(fontWeight: FontWeight.bold)),
-                                            ), 
-                                          ],
-                                        ),
-                                      ),
-                                    ));
+                                        onTap: () {
+                                          Get.to(DetailViewData(
+                                              datum: listData.data[index]));
+                                        },
+                                        child: Card(
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Text(listData.data[index].name,
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 20)),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 4.0),
+                                                  child: Text(
+                                                      listData.data[index].year
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold)),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ));
                                   },
                                 );
                               },

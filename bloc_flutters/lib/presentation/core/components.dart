@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 class Components {
   static RawMaterialButton button({
+    bool useIcon = true,
     required String text,
     required Function() onPressed,
   }) =>
@@ -22,7 +23,7 @@ class Components {
                 const Expanded(
                   child: SizedBox(),
                 ),
-                Icon(Icons.login, size: 28, color: Colours.componentColor),
+                useIcon == true ? Icon(Icons.login, size: 28, color: Colours.componentColor) : Container(),
                 SizedBox(width: 8),
                 Text(text.toUpperCase(),
                     maxLines: 1,

@@ -20,6 +20,14 @@ class _$ProfilEventTearOff {
   _GetProfile getProfile() {
     return const _GetProfile();
   }
+
+  _UpdateProfile updateProfile() {
+    return const _UpdateProfile();
+  }
+
+  _Logout logout() {
+    return const _Logout();
+  }
 }
 
 /// @nodoc
@@ -30,32 +38,44 @@ mixin _$ProfilEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getProfile,
+    required TResult Function() updateProfile,
+    required TResult Function() logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getProfile,
+    TResult Function()? updateProfile,
+    TResult Function()? logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getProfile,
+    TResult Function()? updateProfile,
+    TResult Function()? logout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetProfile value) getProfile,
+    required TResult Function(_UpdateProfile value) updateProfile,
+    required TResult Function(_Logout value) logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetProfile value)? getProfile,
+    TResult Function(_UpdateProfile value)? updateProfile,
+    TResult Function(_Logout value)? logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetProfile value)? getProfile,
+    TResult Function(_UpdateProfile value)? updateProfile,
+    TResult Function(_Logout value)? logout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,6 +138,8 @@ class _$_GetProfile implements _GetProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getProfile,
+    required TResult Function() updateProfile,
+    required TResult Function() logout,
   }) {
     return getProfile();
   }
@@ -126,6 +148,8 @@ class _$_GetProfile implements _GetProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getProfile,
+    TResult Function()? updateProfile,
+    TResult Function()? logout,
   }) {
     return getProfile?.call();
   }
@@ -134,6 +158,8 @@ class _$_GetProfile implements _GetProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getProfile,
+    TResult Function()? updateProfile,
+    TResult Function()? logout,
     required TResult orElse(),
   }) {
     if (getProfile != null) {
@@ -146,6 +172,8 @@ class _$_GetProfile implements _GetProfile {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetProfile value) getProfile,
+    required TResult Function(_UpdateProfile value) updateProfile,
+    required TResult Function(_Logout value) logout,
   }) {
     return getProfile(this);
   }
@@ -154,6 +182,8 @@ class _$_GetProfile implements _GetProfile {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetProfile value)? getProfile,
+    TResult Function(_UpdateProfile value)? updateProfile,
+    TResult Function(_Logout value)? logout,
   }) {
     return getProfile?.call(this);
   }
@@ -162,6 +192,8 @@ class _$_GetProfile implements _GetProfile {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetProfile value)? getProfile,
+    TResult Function(_UpdateProfile value)? updateProfile,
+    TResult Function(_Logout value)? logout,
     required TResult orElse(),
   }) {
     if (getProfile != null) {
@@ -173,6 +205,224 @@ class _$_GetProfile implements _GetProfile {
 
 abstract class _GetProfile implements ProfilEvent {
   const factory _GetProfile() = _$_GetProfile;
+}
+
+/// @nodoc
+abstract class _$UpdateProfileCopyWith<$Res> {
+  factory _$UpdateProfileCopyWith(
+          _UpdateProfile value, $Res Function(_UpdateProfile) then) =
+      __$UpdateProfileCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$UpdateProfileCopyWithImpl<$Res> extends _$ProfilEventCopyWithImpl<$Res>
+    implements _$UpdateProfileCopyWith<$Res> {
+  __$UpdateProfileCopyWithImpl(
+      _UpdateProfile _value, $Res Function(_UpdateProfile) _then)
+      : super(_value, (v) => _then(v as _UpdateProfile));
+
+  @override
+  _UpdateProfile get _value => super._value as _UpdateProfile;
+}
+
+/// @nodoc
+
+class _$_UpdateProfile implements _UpdateProfile {
+  const _$_UpdateProfile();
+
+  @override
+  String toString() {
+    return 'ProfilEvent.updateProfile()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _UpdateProfile);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getProfile,
+    required TResult Function() updateProfile,
+    required TResult Function() logout,
+  }) {
+    return updateProfile();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getProfile,
+    TResult Function()? updateProfile,
+    TResult Function()? logout,
+  }) {
+    return updateProfile?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getProfile,
+    TResult Function()? updateProfile,
+    TResult Function()? logout,
+    required TResult orElse(),
+  }) {
+    if (updateProfile != null) {
+      return updateProfile();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetProfile value) getProfile,
+    required TResult Function(_UpdateProfile value) updateProfile,
+    required TResult Function(_Logout value) logout,
+  }) {
+    return updateProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetProfile value)? getProfile,
+    TResult Function(_UpdateProfile value)? updateProfile,
+    TResult Function(_Logout value)? logout,
+  }) {
+    return updateProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetProfile value)? getProfile,
+    TResult Function(_UpdateProfile value)? updateProfile,
+    TResult Function(_Logout value)? logout,
+    required TResult orElse(),
+  }) {
+    if (updateProfile != null) {
+      return updateProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateProfile implements ProfilEvent {
+  const factory _UpdateProfile() = _$_UpdateProfile;
+}
+
+/// @nodoc
+abstract class _$LogoutCopyWith<$Res> {
+  factory _$LogoutCopyWith(_Logout value, $Res Function(_Logout) then) =
+      __$LogoutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LogoutCopyWithImpl<$Res> extends _$ProfilEventCopyWithImpl<$Res>
+    implements _$LogoutCopyWith<$Res> {
+  __$LogoutCopyWithImpl(_Logout _value, $Res Function(_Logout) _then)
+      : super(_value, (v) => _then(v as _Logout));
+
+  @override
+  _Logout get _value => super._value as _Logout;
+}
+
+/// @nodoc
+
+class _$_Logout implements _Logout {
+  const _$_Logout();
+
+  @override
+  String toString() {
+    return 'ProfilEvent.logout()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Logout);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getProfile,
+    required TResult Function() updateProfile,
+    required TResult Function() logout,
+  }) {
+    return logout();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getProfile,
+    TResult Function()? updateProfile,
+    TResult Function()? logout,
+  }) {
+    return logout?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getProfile,
+    TResult Function()? updateProfile,
+    TResult Function()? logout,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetProfile value) getProfile,
+    required TResult Function(_UpdateProfile value) updateProfile,
+    required TResult Function(_Logout value) logout,
+  }) {
+    return logout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetProfile value)? getProfile,
+    TResult Function(_UpdateProfile value)? updateProfile,
+    TResult Function(_Logout value)? logout,
+  }) {
+    return logout?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetProfile value)? getProfile,
+    TResult Function(_UpdateProfile value)? updateProfile,
+    TResult Function(_Logout value)? logout,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Logout implements ProfilEvent {
+  const factory _Logout() = _$_Logout;
 }
 
 /// @nodoc

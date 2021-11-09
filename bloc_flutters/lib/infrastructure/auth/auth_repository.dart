@@ -7,7 +7,6 @@ import 'package:bloc_flutters/domain/auth/i_auth_repository.dart';
 
 @LazySingleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
-  
   @override
   Future<Either<AuthFailure, Unit>> authToken() async {
     // TODO: implement authToken

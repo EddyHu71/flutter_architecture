@@ -19,19 +19,20 @@ class SplashScreen extends HookWidget {
             getIt<AuthBloc>()..add(const AuthEvent.authToken()),
         child: BlocConsumer<AuthBloc, AuthState>(
           listener: (BuildContext context, AuthState state) {
-            state.maybeMap(
-              orElse: () {
-                return Center(
-                    child: Image.asset(Utils.LOGO, fit: BoxFit.fitWidth));
-              }, loaded: (s) {
-                s.optionFailedOrSuccess.match(
-                    (t) => t.fold(
-                          (l) => Get.offNamedUntil(Routers.login, (route) => false),
-                          (r) => Get.offNamedUntil(Routers.mainpage, (route) => false),
-                        ),
-                    () => Center(
-                        child: Image.asset(Utils.LOGO, fit: BoxFit.fitWidth)));
-              });
+            state.maybeMap(orElse: () {
+              return Center(
+                  child: Image.asset(Utils.LOGO, fit: BoxFit.fitWidth));
+            }, loaded: (s) {
+              s.optionFailedOrSuccess.match(
+                  (t) => t.fold(
+                        (l) =>
+                            Get.offNamedUntil(Routers.login, (route) => false),
+                        (r) => Get.offNamedUntil(
+                            Routers.mainpage, (route) => false),
+                      ),
+                  () => Center(
+                      child: Image.asset(Utils.LOGO, fit: BoxFit.fitWidth)));
+            });
           },
           builder: (BuildContext context, AuthState state) {
             return Scaffold(

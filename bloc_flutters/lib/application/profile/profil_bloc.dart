@@ -16,12 +16,21 @@ class ProfilBloc extends Bloc<ProfilEvent, ProfilState> {
   ProfilBloc(this.iProfilRepository) : super(_Initial()) {
     on<ProfilEvent>((event, emit) async {
       // TODO: implement event handler
-      await event.map(getProfile: (_) async {
-        print("Get Profile executed");
-        var profile = await iProfilRepository.getProfile("2");
-        print(profile);
-        emit(ProfilState.loaded(optionFailedOrSuccess: optionOf(profile)));
-      });
+      await event.map(
+          getProfile: (_) async {
+            print("Get Profile executed");
+            var profile = await iProfilRepository.getProfile("2");
+
+            print(profile);
+            // emit(ProfilState.loaded(optionFailedOrSuccess: optionOf(profile)));
+            emit(ProfilState.loaded(optionFailedOrSuccess: optionOf(profile)));
+          },
+          logout: (e) {
+            print("Logout bloc");
+            iProfilRepository.logout();
+            
+          },
+          updateProfile: (e) {});
     });
   }
 }

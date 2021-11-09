@@ -8,8 +8,8 @@ class Data with _$Data {
   factory Data({
     int? id,
     String? email,
-    String? firstName,
-    String? lastName,
+    @JsonKey(name: 'first_name') String? firstName,
+    @JsonKey(name: 'last_name') String? lastName,
     String? avatar,
   }) = _Data;
 
