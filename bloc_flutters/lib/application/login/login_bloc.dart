@@ -56,5 +56,5 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     });
   }
 
-  Future _signIn(Emitter<LoginState> emit) async {}
+  // Future _signIn(Emitter<LoginState> emit) async {}
 }

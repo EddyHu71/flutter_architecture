@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bloc_flutters/application/logout/logout_bloc.dart';
 import 'package:bloc_flutters/domain/profil/i_profil_repository.dart';
 import 'package:bloc_flutters/domain/profil/profil_failure.dart';
 import 'package:bloc_flutters/presentation/home/model/profile_model.dart';
@@ -25,10 +26,11 @@ class ProfilBloc extends Bloc<ProfilEvent, ProfilState> {
             // emit(ProfilState.loaded(optionFailedOrSuccess: optionOf(profile)));
             emit(ProfilState.loaded(optionFailedOrSuccess: optionOf(profile)));
           },
-          logout: (e) {
+          logout: (e) async {
             print("Logout bloc");
-            iProfilRepository.logout();
-            
+            var res = await iProfilRepository.logout();
+            print(res);
+            emit(ProfilState.logouted(optionFailedOrSuccess: optionOf(res)));
           },
           updateProfile: (e) {});
     });

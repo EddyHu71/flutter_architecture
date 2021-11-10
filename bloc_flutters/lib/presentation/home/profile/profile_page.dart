@@ -2,6 +2,7 @@ import 'package:bloc_flutters/application/profile/profil_bloc.dart';
 import 'package:bloc_flutters/injection.dart';
 import 'package:bloc_flutters/presentation/core/alerts.dart';
 import 'package:bloc_flutters/presentation/home/profile/detail_profile_page.dart';
+import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -17,6 +18,23 @@ class ProfilePage extends HookWidget {
       child: BlocConsumer<ProfilBloc, ProfilState>(
           listener: (BuildContext context, ProfilState state) {
         state.maybeMap(
+          logouted: (s) {
+            return s.optionFailedOrSuccess.match(
+              (t) => t.fold(
+                (l) => Alerts.logoutAlert(
+                        yesText: "OK",
+                        title: "Logout Failed",
+                        withCancel: false,
+                        onPressed: () {
+                          Get.back();
+                        },
+                        onCancelPressed: () {},
+                        context: context),
+                (r) => Get.offNamedUntil(Routers.login, (route) => false)
+              ), 
+                () => null
+              );
+          },
           loaded: (s) {
             return s.optionFailedOrSuccess.match(
                 (t) => t.fold(

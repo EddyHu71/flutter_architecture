@@ -3,7 +3,6 @@ import 'package:bloc_flutters/injection.dart';
 import 'package:bloc_flutters/presentation/core/alerts.dart';
 import 'package:bloc_flutters/presentation/core/components.dart';
 import 'package:bloc_flutters/presentation/core/utils.dart';
-import 'package:bloc_flutters/presentation/home/home_page.dart';
 import 'package:bloc_flutters/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -54,6 +53,7 @@ class LoginPage extends StatelessWidget {
                                 padding: EdgeInsets.only(bottom: 36),
                                 child: Image.asset(Utils.LOGO)),
                             TextFormField(
+                                initialValue: "eve.holt@reqres.in",
                                 keyboardType: TextInputType.text,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
@@ -73,6 +73,7 @@ class LoginPage extends StatelessWidget {
                                         orElse: () => null),
                                     (r) => null)),
                             TextFormField(
+                              initialValue: "cityslicka",
                               keyboardType: TextInputType.text,
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,

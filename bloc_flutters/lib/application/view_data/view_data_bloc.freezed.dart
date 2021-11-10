@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ViewDataEventTearOff {
   const _$ViewDataEventTearOff();
 
-  _Started started() {
-    return const _Started();
+  _FetchApi getData() {
+    return const _FetchApi();
   }
 }
 
@@ -29,33 +29,33 @@ const $ViewDataEvent = _$ViewDataEventTearOff();
 mixin _$ViewDataEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() getData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? getData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? getData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_FetchApi value) getData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_FetchApi value)? getData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_FetchApi value)? getData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -79,35 +79,35 @@ class _$ViewDataEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
+abstract class _$FetchApiCopyWith<$Res> {
+  factory _$FetchApiCopyWith(_FetchApi value, $Res Function(_FetchApi) then) =
+      __$FetchApiCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$ViewDataEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
+class __$FetchApiCopyWithImpl<$Res> extends _$ViewDataEventCopyWithImpl<$Res>
+    implements _$FetchApiCopyWith<$Res> {
+  __$FetchApiCopyWithImpl(_FetchApi _value, $Res Function(_FetchApi) _then)
+      : super(_value, (v) => _then(v as _FetchApi));
 
   @override
-  _Started get _value => super._value as _Started;
+  _FetchApi get _value => super._value as _FetchApi;
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_FetchApi implements _FetchApi {
+  const _$_FetchApi();
 
   @override
   String toString() {
-    return 'ViewDataEvent.started()';
+    return 'ViewDataEvent.getData()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Started);
+        (other.runtimeType == runtimeType && other is _FetchApi);
   }
 
   @override
@@ -116,27 +116,27 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() getData,
   }) {
-    return started();
+    return getData();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? getData,
   }) {
-    return started?.call();
+    return getData?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? getData,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (getData != null) {
+      return getData();
     }
     return orElse();
   }
@@ -144,34 +144,34 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_FetchApi value) getData,
   }) {
-    return started(this);
+    return getData(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_FetchApi value)? getData,
   }) {
-    return started?.call(this);
+    return getData?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_FetchApi value)? getData,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (getData != null) {
+      return getData(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements ViewDataEvent {
-  const factory _Started() = _$_Started;
+abstract class _FetchApi implements ViewDataEvent {
+  const factory _FetchApi() = _$_FetchApi;
 }
 
 /// @nodoc

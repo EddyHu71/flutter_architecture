@@ -3,6 +3,7 @@ import 'package:bloc_flutters/injection.dart';
 import 'package:bloc_flutters/presentation/core/components.dart';
 import 'package:bloc_flutters/presentation/home/model/data.dart';
 import 'package:bloc_flutters/presentation/home/model/profile_model.dart';
+import 'package:bloc_flutters/presentation/home/profile/update_profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -50,7 +51,7 @@ class DetailPage extends HookWidget {
                   text: "UPDATE",
                   onPressed: () {
                     print("Update");
-                    // Get.off(HomePage());
+                    Get.to(UpdateProfilePage(profileModel: profileModel));
                     
                   }),
             ),

@@ -18,7 +18,7 @@ class ViewDataPage extends HookWidget {
     // TODO: implement build
     return BlocProvider<ViewDataBloc>(
         create: (context) =>
-            getIt<ViewDataBloc>()..add(const ViewDataEvent.started()),
+            getIt<ViewDataBloc>()..add(const ViewDataEvent.getData()),
         child: BlocConsumer<ViewDataBloc, ViewDataState>(
             listener: (BuildContext context, ViewDataState state) {
           state.maybeMap(

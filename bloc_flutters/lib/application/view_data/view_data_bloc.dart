@@ -17,7 +17,7 @@ class ViewDataBloc extends Bloc<ViewDataEvent, ViewDataState> {
     // ignore: void_checks
     on<ViewDataEvent>((event, emit) async {
       // TODO: implement event handler
-      await event.map(started: (_) async {
+      await event.map(getData: (_) async {
         print("View Data Bloc executed");
         emit(const ViewDataState.loading());
         Future.delayed(const Duration(seconds: 3));

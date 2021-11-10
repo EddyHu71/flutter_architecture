@@ -43,7 +43,11 @@ class ProfilRepository implements IProfilRepository {
       await Storage.openBox(StorageName.box_name);
       await Storage.delete(key: "token");
       print("Logout executed");
-      return right(unit);
+      var cektoken = await Storage.getData(key : "token");
+      if (cektoken == null) {
+        return right(unit);
+      }
+        return left(ProfilFailure.failed());
     } catch (e) {
       print(e);
       return left(ProfilFailure.failed());
