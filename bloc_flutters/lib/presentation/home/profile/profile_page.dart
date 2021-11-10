@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ProfilePage extends HookWidget {
   @override
@@ -131,7 +132,58 @@ class ProfilePage extends HookWidget {
                             )),
                     () => null);
               }, orElse: () {
-                return Center(child: CircularProgressIndicator());
+                return Shimmer.fromColors(
+                  baseColor: Colors.grey.shade500,
+                  highlightColor: Colors.grey.shade200,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                    Center(
+                      child: Container(
+                        width: Get.width * 0.35,
+                        color: Colors.grey.shade500,
+                        height: Get.width * 0.35,
+                        //child: Image.network(profile.data!.avatar!),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top : 8.0, bottom : 8.0),
+                      child: Container(
+                        color : Colors.grey.shade500,
+                        height : 16.0,
+                        width : 100,
+                      ),
+                    ),
+                    Container(
+                      color : Colors.grey.shade500,
+                      height : 16.0,
+                      width : 125,
+                    ),
+                    Expanded(flex: 1, child: SizedBox()),
+                    Card(
+                        child: Column(
+                      children: [
+                        ListTile(
+                          leading: Icon(Icons.person),
+                          title: Text("Profil"),
+                          trailing: Icon(Icons.arrow_forward_ios),
+                          onTap: () {
+                            
+                          },
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.exit_to_app),
+                          title: Text("Keluar"),
+                          trailing: Icon(Icons.arrow_forward_ios),
+                          onTap: () {
+                          },
+                        )
+                      ],
+                    )),
+                    Expanded(flex: 3, child: SizedBox())
+                    ],
+                  ),
+                );
               })),
         );
       }),
