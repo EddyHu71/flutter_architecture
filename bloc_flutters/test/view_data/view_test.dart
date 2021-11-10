@@ -1,7 +1,4 @@
-import 'package:bloc_flutters/application/profile/profil_bloc.dart';
 import 'package:bloc_flutters/application/view_data/view_data_bloc.dart';
-import 'package:bloc_flutters/domain/profil/i_profil_repository.dart';
-import 'package:bloc_flutters/domain/profil/profil_failure.dart';
 import 'package:bloc_flutters/domain/view_data/i_view_repository.dart';
 import 'package:bloc_flutters/domain/view_data/view_failure.dart';
 import 'package:bloc_flutters/model/view_data/datum.dart';
@@ -55,39 +52,70 @@ void main() {
       data: data, 
       totalPages: 2,
     );
+
     viewDataState = ViewDataState.initial();
 
-    tearDown(() {
-      viewDataBloc.close();
-    });
+  });
+
+  tearDown(() {
+    viewDataBloc.close();
   });
   blocTest("Initial Test", build: () => viewDataBloc, expect: () => []);
-  // blocTest(
-  //   "Start Event failed", 
-  // build: () {
-  //   when(() => mockViewRepo.getData()).thenAnswer((_) async => left(ViewFailure.failed()));
-  //   return mockViewRepo;
-  // },
-  // act: (ViewDataBloc bloc) => bloc.add(ViewDataEvent.started()) ,
-  // wait: Duration(seconds: 3),
-  // expect: () => {
-  //     print("Start Event failed"),
-  //     ViewDataState.initial(),
-  //     ViewDataState.loaded(optionFailedOrSuccess: optionOf(left(ViewFailure.failed())))
-  //   }
-  // );
-  // blocTest(
-  //   "Start Event no Data", 
-  // build: () {
-  //   when(() => mockViewRepo.getData()).thenAnswer((_) async => left(ViewFailure.noData()));
-  //   return mockViewRepo;
-  // },
-  // act: (ViewDataBloc bloc) => bloc.add(ViewDataEvent.getData()),
-  // wait: Duration(seconds: 3),
-  // expect: () => {
-  //     print("Start Event No Data"),
-  //     ViewDataState.initial(),
-  //     ViewDataState.loaded(optionFailedOrSuccess: optionOf(left(ViewFailure.noData())))
-  //   }
-  // );
+
+  blocTest(
+    "Start View failed", 
+  build: () {
+    when(() => mockViewRepo.getData()).thenAnswer((_) async => left(ViewFailure.failed()));
+    return viewDataBloc;
+  },
+  act: (ViewDataBloc bloc) => bloc.add(const ViewDataEvent.getData()),
+  wait: Duration(seconds: 3),
+  expect: () => {
+    print("Start View Failed"),
+    ViewDataState.initial(),
+    ViewDataState.loaded(optionFailedOrSuccess: optionOf(left(ViewFailure.failed()))),
+  });
+
+  blocTest(
+    "Start View no Data", 
+  build: () {
+    when(() => mockViewRepo.getData()).thenAnswer((_) async => left(ViewFailure.noData()));
+    return viewDataBloc;
+  },
+  act: (ViewDataBloc bloc) => bloc.add(const ViewDataEvent.getData()),
+  wait: Duration(seconds: 3),
+  expect: () => {
+    print("Start View No Data"),
+    ViewDataState.initial(),
+    ViewDataState.loaded(optionFailedOrSuccess: optionOf(left(ViewFailure.noData()))),
+  });
+
+  blocTest(
+    "Start View no Internet", 
+  build: () {
+    when(() => mockViewRepo.getData()).thenAnswer((_) async => left(ViewFailure.noInternet()));
+    return viewDataBloc;
+  },
+  act: (ViewDataBloc bloc) => bloc.add(const ViewDataEvent.getData()),
+  wait: Duration(seconds: 3),
+  expect: () => {
+    print("Start View No Internet"),
+    ViewDataState.initial(),
+    ViewDataState.loaded(optionFailedOrSuccess: optionOf(left(ViewFailure.noInternet()))),
+  });
+
+  blocTest(
+    "Start View success", 
+  build: () {
+    when(() => mockViewRepo.getData()).thenAnswer((_) async => left(ViewFailure.noInternet()));
+    return viewDataBloc;
+  },
+  act: (ViewDataBloc bloc) => bloc.add(const ViewDataEvent.getData()),
+  wait: Duration(seconds: 3),
+  expect: () => {
+    print("Start View Success"),
+    ViewDataState.initial(),
+    ViewDataState.loaded(optionFailedOrSuccess: optionOf(right(viewData))),
+  });
+
 }
